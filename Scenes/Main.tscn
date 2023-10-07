@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Graphics/Fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Graphics/Fonts/Montserrat-Regular.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Scenes/Start.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Settings.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Global.gd" type="Script" id=6]
+[ext_resource path="res://Video/nggyu_fullhd.webm" type="VideoStream" id=7]
+[ext_resource path="res://Scenes/8).gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
@@ -131,9 +133,41 @@ text = "Back"
 
 [node name="move_tween" type="Tween" parent="Menu/MainMenu/UI/MenuButtons/Settings"]
 
+[node name="8)" type="Node2D" parent="Menu/MainMenu/UI/MenuButtons"]
+position = Vector2( 576, 0 )
+script = ExtResource( 8 )
+
+[node name="VideoContainer" type="VBoxContainer" parent="Menu/MainMenu/UI/MenuButtons/8)"]
+margin_top = 373.0
+margin_right = 576.0
+margin_bottom = 949.0
+
+[node name="VideoPlayer" type="VideoPlayer" parent="Menu/MainMenu/UI/MenuButtons/8)/VideoContainer"]
+margin_right = 576.0
+margin_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 576, 350 )
+stream = ExtResource( 7 )
+
+[node name="Back2" type="Button" parent="Menu/MainMenu/UI/MenuButtons/8)/VideoContainer"]
+margin_top = 354.0
+margin_right = 576.0
+margin_bottom = 415.0
+focus_mode = 0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+text = "Back"
+
+[node name="move_tween" type="Tween" parent="Menu/MainMenu/UI/MenuButtons/8)"]
+
 [node name="Settings" type="Node2D" parent="Menu"]
 
 [node name="Gameplay" type="Node2D" parent="."]
 
+[connection signal="pressed" from="Menu/MainMenu/UI/MenuButtons/Start/StartMenu/Start" to="Menu/MainMenu/UI/MenuButtons" method="_on_Start_pressed"]
 [connection signal="pressed" from="Menu/MainMenu/UI/MenuButtons/Start/StartMenu/Settings" to="Menu/MainMenu/UI/MenuButtons" method="_on_Settings_pressed"]
+[connection signal="pressed" from="Menu/MainMenu/UI/MenuButtons/Start/StartMenu/Quit" to="Menu/MainMenu/UI/MenuButtons" method="_on_Quit_pressed"]
 [connection signal="pressed" from="Menu/MainMenu/UI/MenuButtons/Settings/SettingsMenu/Back" to="Menu/MainMenu/UI/MenuButtons" method="_on_Back_pressed"]
+[connection signal="pressed" from="Menu/MainMenu/UI/MenuButtons/8)/VideoContainer/Back2" to="Menu/MainMenu/UI/MenuButtons" method="_on_Back2_pressed"]
