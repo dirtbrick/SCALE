@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://fonts/FiraSans-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://ui_themes/debug_contrast.tres" type="Theme" id=2]
+[ext_resource path="res://scripts/swipedetector.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Home.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 120
+extra_spacing_top = -65
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "HomePanelRight"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2160, 0 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Home" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="Background" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 520.0
+color = Color( 0.980392, 0.960784, 0.831373, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.3
+margin_bottom = 192.0
+rect_min_size = Vector2( 1080, 192 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[wave amp=50 freq=2][center]Ludumathica[/center]"
+text = "Ludumathica"
+scroll_active = false
+
+[node name="Navigation" type="Control" parent="."]
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 0.75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Navigation"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -408.0
+margin_top = -98.0
+margin_right = 354.0
+margin_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Navigation/VBoxContainer"]
+margin_right = 762.0
+margin_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 0, 96 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+text = "START"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 540, 540 )
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Panel")
+anims/HomePanelRight = SubResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1080.0
+margin_right = 2160.0
+
+[connection signal="resized" from="." to="." method="_on_Home_resized"]
+[connection signal="pressed" from="Navigation/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="swipe_down" from="Camera2D" to="." method="_on_Camera2D_swipe_down"]
+[connection signal="swipe_left" from="Camera2D" to="." method="_on_Camera2D_swipe_left"]
+[connection signal="swipe_right" from="Camera2D" to="." method="_on_Camera2D_swipe_right"]
+[connection signal="swipe_up" from="Camera2D" to="." method="_on_Camera2D_swipe_up"]

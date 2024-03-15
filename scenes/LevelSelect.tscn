@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[node name="LevelSelect" type="Node2D"]
+
+[node name="Background" type="Control" parent="."]
+margin_right = 1080.0
+margin_bottom = 1920.0
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -1060.0
+margin_right = 640.0
+margin_bottom = 1060.0
+color = Color( 0.980392, 0.960784, 0.831373, 1 )
+
+[node name="Levels" type="Control" parent="."]
+margin_right = 1080.0
+margin_bottom = 1920.0
+
+[node name="level1" type="TextureButton" parent="Levels"]
+margin_right = 171.0
+margin_bottom = 178.0
+texture_normal = ExtResource( 1 )
+expand = true
+
+[node name="level2" type="TextureButton" parent="Levels"]
+margin_left = 568.0
+margin_right = 739.0
+margin_bottom = 178.0
+rect_pivot_offset = Vector2( 86, 561 )
+texture_normal = ExtResource( 1 )
+expand = true
+
+[node name="level3" type="TextureButton" parent="Levels"]
+margin_left = 568.0
+margin_top = 503.0
+margin_right = 739.0
+margin_bottom = 681.0
+rect_pivot_offset = Vector2( 86, 561 )
+texture_normal = ExtResource( 1 )
+expand = true
+
+[node name="random level design" type="Sprite" parent="."]
+position = Vector2( 815, 45 )
+texture = ExtResource( 1 )
+offset = Vector2( -549, 58 )
+
+[node name="random level design2" type="Sprite" parent="."]
+position = Vector2( 815, 45 )
+texture = ExtResource( 1 )
+offset = Vector2( -441, 60 )
+
+[node name="random level design3" type="Sprite" parent="."]
+position = Vector2( 815, 45 )
+texture = ExtResource( 1 )
+offset = Vector2( -339, 61 )
+
+[node name="random level design4" type="Sprite" parent="."]
+position = Vector2( 1200, 203 )
+texture = ExtResource( 1 )
+offset = Vector2( -549, 58 )
+
+[node name="random level design5" type="Sprite" parent="."]
+position = Vector2( 1092, 285 )
+texture = ExtResource( 1 )
+offset = Vector2( -441, 60 )
+
+[node name="random level design6" type="Sprite" parent="."]
+position = Vector2( 993, 364 )
+texture = ExtResource( 1 )
+offset = Vector2( -339, 61 )
