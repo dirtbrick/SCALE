@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cq08dqgp4adpg"]
+
+[ext_resource type="FontFile" uid="uid://xvvgepunscof" path="res://fonts/NotoSansMath-Regular.ttf" id="1_e031n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2010"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+
+[resource]
+Button/font_sizes/font_size = 45
+Button/fonts/font = ExtResource("1_e031n")
+Button/styles/normal = SubResource("StyleBoxFlat_y2010")
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("1_e031n")

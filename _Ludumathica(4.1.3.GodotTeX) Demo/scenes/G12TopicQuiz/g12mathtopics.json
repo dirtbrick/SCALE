@@ -1,0 +1,42 @@
+[
+    {
+        "questionText": "\\text{Find the sum of} \\frac{1}{2}+\\frac{2}{3}.",
+        "choice1": 1,
+        "choice2": 2,
+        "choice3": 3,
+        "choice4": "\\frac{7}{6}",
+        "correctAnswer": "\\frac{7}{6}",
+        "solution": "Add 1 and 2.",
+        "questionUID": "a0bb1d4786e6810d5d43ea718f095130"
+    },
+    {
+        "questionText": "\\text{Calculate the value of} \\frac{\\pi}{e}.",
+        "choice1": 7.716293227121033,
+        "choice2": 1.15572734979,
+        "choice3": 4.964931809652028,
+        "choice4": 8.289102169712347,
+        "correctAnswer": 1.15572734979,
+        "solution": "Lorem ipsum",
+        "questionUID": "95c4295220c2d32a1cc66298d5c807ac"
+    },
+    {
+        "questionText": "\\text{Find the sum of the first two prime numbers that are divisible by }13.",
+        "choice1": 9,
+        "choice2": 3,
+        "choice3": "\\text{idk}",
+        "choice4": 1,
+        "correctAnswer": "\\text{idk}",
+        "solution": "Lorem ipsum",
+        "questionUID": "fb73a59904487d15215fc17baf467807"
+    },
+    {
+        "questionText": "\\text{What is} 2 \\times 2?",
+        "choice1": 0,
+        "choice2": 1,
+        "choice3": 6,
+        "choice4": 4,
+        "correctAnswer": 4,
+        "solution": "Lorem ipsum",
+        "questionUID": "63b35e3a2b89d1aa95c3f6427aeea07f"
+    }
+]
