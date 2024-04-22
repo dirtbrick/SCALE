@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://fonts/FiraSans-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://ui_themes/debug_contrast.tres" type="Theme" id=2]
 [ext_resource path="res://scripts/swipedetector.gd" type="Script" id=3]
 [ext_resource path="res://scripts/Home.gd" type="Script" id=4]
+[ext_resource path="res://graphics/Pebble.png" type="Texture" id=5]
+[ext_resource path="res://graphics/Background.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 120
@@ -41,16 +43,22 @@ anchor_bottom = 1.0
 margin_bottom = 520.0
 color = Color( 0.980392, 0.960784, 0.831373, 1 )
 
+[node name="Background" type="Sprite" parent="Background/ColorRect"]
+position = Vector2( 708, 1000 )
+texture = ExtResource( 6 )
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_top = 0.3
 anchor_right = 1.0
 anchor_bottom = 0.3
-margin_bottom = 192.0
+margin_top = -208.0
+margin_bottom = -16.0
 rect_min_size = Vector2( 1080, 192 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/bold_font = SubResource( 1 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[wave amp=50 freq=2][center]Ludumata[/center]"
+bbcode_text = "[wave amp=50 freq=2][center][b]Ludumata[/b][/center][/wave]"
 text = "Ludumata"
 scroll_active = false
 
@@ -72,7 +80,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="Navigation/VBoxContainer"]
+[node name="Button" type="TextureButton" parent="Navigation/VBoxContainer"]
 margin_right = 762.0
 margin_bottom = 196.0
 grow_horizontal = 2
@@ -81,7 +89,9 @@ rect_min_size = Vector2( 0, 96 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
-text = "START"
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 540, 540 )
