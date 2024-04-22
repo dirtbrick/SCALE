@@ -50,8 +50,8 @@ rect_min_size = Vector2( 1080, 192 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[wave amp=50 freq=2][center]Ludumathica[/center]"
-text = "Ludumathica"
+bbcode_text = "[wave amp=50 freq=2][center]Ludumata[/center]"
+text = "Ludumata"
 scroll_active = false
 
 [node name="Navigation" type="Control" parent="."]
