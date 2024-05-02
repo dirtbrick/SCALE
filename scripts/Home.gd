@@ -5,10 +5,9 @@ onready var ANIMATION = $AnimationPlayer
 onready var PANEL1 = $Panel
 onready var NAVIGATION = $Navigation
 onready var LUDUMATHICA = $RichTextLabel
-onready var TRANSITION = $Control/Transition
 
 func _ready():
-	TRANSITION.z_index
+	pass
 
 func _on_Camera2D_swipe_down():
 	pass # Replace with function body.
@@ -38,7 +37,7 @@ func _on_Home_resized():
 	
 
 func _on_Button_pressed():
-	SceneTransition.change_scene("res://scenes/MainMenu.tscn")
+	SceneTransition.change_scene("res://scenes/LevelSelect.tscn")
 	"""
 	yield(ANIMATION, 'animation_finished')
 	var MAINMENU = load("res://scenes/MainMenu.tscn")

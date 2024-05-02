@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/FiraSans-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://graphics/MainButtons.png" type="Texture" id=2]
 [ext_resource path="res://scripts/swipedetector.gd" type="Script" id=3]
 [ext_resource path="res://scripts/Home.gd" type="Script" id=4]
-[ext_resource path="res://graphics/WaterTransition.png" type="Texture" id=5]
-[ext_resource path="res://graphics/Background.png" type="Texture" id=6]
+[ext_resource path="res://graphics/MainBackground.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 120
@@ -44,50 +43,17 @@ tracks/0/keys = {
 "values": [ Vector2( 2160, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "WaterTransitionDown"
-tracks/0/type = "value"
-tracks/0/path = NodePath("../Control/Transition:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.3, 1 ),
-"transitions": PoolRealArray( 1.8025, 1.8025 ),
-"update": 0,
-"values": [ Vector2( 0, -1600 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=7]
-resource_name = "WaterTransitionUp"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/path = NodePath("../Control:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1200 ) ]
-}
-
 [node name="Home" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
 
-[node name="Background" type="Control" parent="."]
-margin_right = 1080.0
-margin_bottom = 1080.0
-
-[node name="Background" type="Sprite" parent="Background"]
-scale = Vector2( 2, 2 )
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 6 )
-centered = false
+expand = true
+stretch_mode = 7
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_top = 0.3
@@ -190,8 +156,6 @@ script = ExtResource( 3 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Panel")
 anims/HomePanelRight = SubResource( 2 )
-anims/WaterTransitionDown = SubResource( 8 )
-anims/WaterTransitionUp = SubResource( 7 )
 
 [node name="Panel" type="Panel" parent="."]
 anchor_left = 1.0
@@ -199,24 +163,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1080.0
 margin_right = 2160.0
-
-[node name="Control" type="Control" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -540.0
-margin_top = -1080.0
-margin_right = -500.0
-margin_bottom = -1040.0
-
-[node name="Transition" type="Sprite" parent="Control"]
-position = Vector2( 0, -388.152 )
-scale = Vector2( 2, 2 )
-z_index = 1000
-texture = ExtResource( 5 )
-centered = false
-offset = Vector2( 0, 800 )
 
 [connection signal="resized" from="." to="." method="_on_Home_resized"]
 [connection signal="pressed" from="Navigation/GridContainer/PLAY" to="." method="_on_Button_pressed"]
