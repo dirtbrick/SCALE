@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pebble.png-0a5d8a927ff729dc1b755da3aecad06b.stex"
+path="res://.import/WaterTransition.png-5ad96920a4c52e50842f98d5d7672d6c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/Pebble.png"
-dest_files=[ "res://.import/Pebble.png-0a5d8a927ff729dc1b755da3aecad06b.stex" ]
+source_file="res://graphics/WaterTransition.png"
+dest_files=[ "res://.import/WaterTransition.png-5ad96920a4c52e50842f98d5d7672d6c.stex" ]
 
 [params]
 

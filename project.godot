@@ -15,12 +15,16 @@ run/main_scene="res://scenes/Home.tscn"
 boot_splash/image="res://icon.png"
 config/icon="res://icon.png"
 
+[autoload]
+
+SceneTransition="*res://scenes/SceneTransition.tscn"
+
 [display]
 
 window/size/width=1080
 window/size/height=1080
-window/size/test_width=300
-window/size/test_height=450
+window/size/test_width=370
+window/size/test_height=540
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
@@ -28,6 +32,11 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PoolStringArray(  )
+
+[global]
+
+size=false
+width=false
 
 [gui]
 

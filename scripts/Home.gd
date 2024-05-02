@@ -5,9 +5,10 @@ onready var ANIMATION = $AnimationPlayer
 onready var PANEL1 = $Panel
 onready var NAVIGATION = $Navigation
 onready var LUDUMATHICA = $RichTextLabel
+onready var TRANSITION = $Control/Transition
 
 func _ready():
-	pass # Replace with function body.
+	TRANSITION.z_index
 
 func _on_Camera2D_swipe_down():
 	pass # Replace with function body.
@@ -36,11 +37,15 @@ func _on_Home_resized():
 	
 	
 
-
 func _on_Button_pressed():
+	SceneTransition.change_scene("res://scenes/MainMenu.tscn")
+	"""
+	yield(ANIMATION, 'animation_finished')
 	var MAINMENU = load("res://scenes/MainMenu.tscn")
 	self.remove_child(NAVIGATION)
 	self.remove_child(LUDUMATHICA)
 	NAVIGATION.call_deferred("free")
 	var MAINMENUINS = MAINMENU.instance()
 	self.add_child(MAINMENUINS)
+	ANIMATION.play("WaterTransitionDown")
+	"""
