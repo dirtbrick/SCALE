@@ -17,7 +17,11 @@ config/icon="res://icon.png"
 
 [autoload]
 
+<<<<<<< Updated upstream
 SceneTransition="*res://scenes/SceneTransition.tscn"
+=======
+SceneTransition="*res://scenes/ui/SceneTransition.tscn"
+>>>>>>> Stashed changes
 DialogManager="*res://scripts/singleton/DialogManager.gd"
 
 [display]

@@ -48,3 +48,7 @@ func _on_Button_pressed():
 	self.add_child(MAINMENUINS)
 	ANIMATION.play("WaterTransitionDown")
 	"""
+
+
+func _on_TUTORIAL_pressed():
+	SceneTransition.change_scene("res://scenes/Tutorial.tscn")

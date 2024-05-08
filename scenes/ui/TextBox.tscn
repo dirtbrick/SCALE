@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://graphics/MainBackground.png" type="Texture" id=1]
+[ext_resource path="res://fonts/NotoSansMath-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends MarginContainer
+
+onready var label = $MarginContainer/Label
+onready var timer = $LetterDisplayTimer
+
+const MAX_WIDTH = 1000
+
+var text = \"\"
+var letter_index = 0
+
+var letter_time = 0.03
+var space_time = 0.06
+var punctuation_time = 0.2
+
+signal finished_displaying()
+
+func display_text(text_to_disp: String):
+	text = text_to_disp
+	label.text = text
+	
+	yield(self,\"resized\")
+	rect_min_size.x = min(rect_size.x,MAX_WIDTH)
+	
+	if rect_size.x > MAX_WIDTH:
+		label.autowrap=true
+		yield(self,\"resized\") # wait for x
+		yield(self,\"resized\") # wait for y
+		rect_min_size.y = rect_size.y
+	rect_global_position.x -= rect_size.x/2
+	rect_global_position.y -= rect_size.y + 24
+	label.text=\"\"
+	_display_letter()
+
+func _display_letter():
+	label.text += text[letter_index]
+	letter_index += 1
+	if letter_index >= text.length():
+		emit_signal(\"finished_displaying\")
+		return
+	match text[letter_index]:
+		\"!\",\".\",\",\",\"?\":
+			timer.start(punctuation_time)
+		\" \":
+			timer.start(space_time)
+		_:
+			timer.start(letter_time)
+			
+func _ready():
+	pass
+
+
+
+func _on_LetterDisplayTimer_timeout():
+	_display_letter()
+"
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+extra_spacing_top = -21
+font_data = ExtResource( 2 )
+
+[node name="TextBox" type="MarginContainer"]
+margin_right = 128.0
+margin_bottom = 128.0
+script = SubResource( 1 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_right = 128.0
+margin_bottom = 128.0
+texture = ExtResource( 1 )
+region_rect = Rect2( 352, 64, 96, 96 )
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 128.0
+margin_bottom = 128.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+margin_left = 8.0
+margin_top = 41.0
+margin_right = 120.0
+margin_bottom = 86.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "
+"
+valign = 1
+
+[node name="LetterDisplayTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_LetterDisplayTimer_timeout"]
