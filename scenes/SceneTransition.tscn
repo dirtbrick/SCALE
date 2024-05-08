@@ -7,7 +7,7 @@
 resource_name = "RESET"
 length = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath("Anchor:anchor_top")
+tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -15,11 +15,11 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1.2 ]
+"update": 1,
+"values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Anchor:anchor_bottom")
+tracks/1/path = NodePath("Anchor/Wave:anchor_top")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -28,10 +28,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1.2 ]
+"values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:visible")
+tracks/2/path = NodePath("Anchor/Wave:anchor_bottom")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -39,36 +39,36 @@ tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"update": 0,
+"values": [ 1.0 ]
 }
 
 [sub_resource type="Animation" id=2]
 resource_name = "Wave"
 length = 0.7
 tracks/0/type = "value"
-tracks/0/path = NodePath("Anchor:anchor_top")
+tracks/0/path = NodePath("Anchor/Wave:anchor_top")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 0.341509, 0.341509 ),
+"transitions": PoolRealArray( 0.329877, 0.329877 ),
 "update": 0,
-"values": [ 1.2, 0.0 ]
+"values": [ 0.0, -1.7 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Anchor:anchor_bottom")
+tracks/1/path = NodePath("Anchor/Wave:anchor_bottom")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 0.341509, 0.341509 ),
+"transitions": PoolRealArray( 0.329877, 0.329877 ),
 "update": 0,
-"values": [ 1.2, 0.0 ]
+"values": [ 1.0, 0.0 ]
 }
 
 [node name="scene_transition" type="CanvasLayer"]
@@ -77,16 +77,16 @@ visible = false
 script = ExtResource( 2 )
 
 [node name="Anchor" type="Control" parent="."]
-anchor_top = 1.2
-anchor_bottom = 1.2
-margin_top = -40.0
-margin_right = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="Wave" type="Sprite" parent="Anchor"]
-scale = Vector2( 2, 2 )
+[node name="Wave" type="TextureRect" parent="Anchor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1080.0
+margin_bottom = 2160.0
 texture = ExtResource( 1 )
-centered = false
-offset = Vector2( 0, -600 )
+expand = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
