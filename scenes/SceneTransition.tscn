@@ -73,6 +73,7 @@ tracks/1/keys = {
 
 [node name="scene_transition" type="CanvasLayer"]
 layer = 128
+visible = false
 script = ExtResource( 2 )
 
 [node name="Anchor" type="Control" parent="."]
