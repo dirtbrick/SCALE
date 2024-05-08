@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://scripts/LevelSelect.gd" type="Script" id=2]
@@ -8,6 +8,15 @@
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 4 )
 region_rect = Rect2( 938, 1535, 333, 331 )
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -191, 328, -16.8179, 2.52269, 16.8179, -2.52269, -19, 287, -59.8678, 21.6514, 59.8678, -21.6514, 97, 259, -16.0181, 40.0452, 16.0181, -40.0452, 197, 180, 40.5866, 14.1581, -40.5866, -14.1581, 154, 57, 30.204, 27.3724, -30.204, -27.3724, 21, 21, -4.71937, -5.66325, 4.71937, 5.66325, -65, -76, 3.6956, 51.7384, -3.6956, -51.7384, -107, -167, 0, 0, 0, 0, -88, -271 )
+}
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 4 )
+region_rect = Rect2( 940, 1141, 333, 198 )
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
@@ -25,55 +34,77 @@ expand = true
 stretch_mode = 7
 
 [node name="Levels" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="level1" type="Button" parent="Levels"]
-margin_right = 171.0
-margin_bottom = 178.0
+margin_left = -252.0
+margin_top = 193.0
+margin_right = -81.0
+margin_bottom = 371.0
 custom_styles/normal = SubResource( 1 )
 
 [node name="level2" type="Button" parent="Levels"]
-margin_left = 568.0
-margin_right = 739.0
-margin_bottom = 178.0
+margin_left = 93.0
+margin_top = -64.0
+margin_right = 264.0
+margin_bottom = 114.0
 rect_pivot_offset = Vector2( 86, 561 )
 custom_styles/normal = SubResource( 1 )
 
 [node name="level3" type="Button" parent="Levels"]
-margin_left = 568.0
-margin_top = 503.0
-margin_right = 739.0
-margin_bottom = 681.0
+margin_left = -177.0
+margin_top = -402.0
+margin_right = -6.0
+margin_bottom = -224.0
 rect_pivot_offset = Vector2( 86, 561 )
 custom_styles/normal = SubResource( 1 )
 
-[node name="random level design" type="Sprite" parent="."]
-position = Vector2( 815, 45 )
+[node name="random level design" type="Sprite" parent="Levels"]
+position = Vector2( 448, -221 )
 texture = ExtResource( 1 )
 offset = Vector2( -549, 58 )
 
-[node name="random level design2" type="Sprite" parent="."]
-position = Vector2( 815, 45 )
+[node name="random level design2" type="Sprite" parent="Levels"]
+position = Vector2( 385, -130 )
 texture = ExtResource( 1 )
 offset = Vector2( -441, 60 )
 
-[node name="random level design3" type="Sprite" parent="."]
-position = Vector2( 815, 45 )
+[node name="random level design3" type="Sprite" parent="Levels"]
+position = Vector2( 360, -25 )
 texture = ExtResource( 1 )
 offset = Vector2( -339, 61 )
 
-[node name="random level design4" type="Sprite" parent="."]
-position = Vector2( 1200, 203 )
+[node name="random level design4" type="Sprite" parent="Levels"]
+position = Vector2( 742, 121 )
 texture = ExtResource( 1 )
 offset = Vector2( -549, 58 )
 
-[node name="random level design5" type="Sprite" parent="."]
-position = Vector2( 1092, 285 )
+[node name="random level design5" type="Sprite" parent="Levels"]
+position = Vector2( 544, 195 )
 texture = ExtResource( 1 )
 offset = Vector2( -441, 60 )
 
-[node name="random level design6" type="Sprite" parent="."]
-position = Vector2( 993, 364 )
+[node name="random level design6" type="Sprite" parent="Levels"]
+position = Vector2( 323, 231 )
 texture = ExtResource( 1 )
 offset = Vector2( -339, 61 )
+
+[node name="Path2D" type="Path2D" parent="Levels"]
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Levels/Path2D"]
+position = Vector2( -191, 328 )
+rotate = false
+loop = false
+
+[node name="Button" type="Button" parent="Levels/Path2D/PathFollow2D"]
+margin_right = 125.0
+margin_bottom = 70.0
+custom_styles/normal = SubResource( 3 )
 
 [connection signal="pressed" from="Levels/level1" to="." method="_on_level1_pressed"]
+[connection signal="pressed" from="Levels/level2" to="." method="_on_level2_pressed"]
+[connection signal="pressed" from="Levels/level3" to="." method="_on_level3_pressed"]

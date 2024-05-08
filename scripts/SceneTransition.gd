@@ -1,5 +1,9 @@
 extends CanvasLayer
 
+func _ready():
+	pass
+
+
 func change_scene(target: String) -> void:
 	$"/root/SceneTransition".visible = true
 	$AnimationPlayer.play("Wave")

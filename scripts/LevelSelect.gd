@@ -1,20 +1,34 @@
 extends Control
 
+onready var P=$Levels/Path2D/PathFollow2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	pass
 
 func _on_level1_pressed():
 	SceneTransition.change_scene("res://scenes/Home.tscn")
+
+var gotoisle2 = false
+var gotoisle3 = false
+
+
+func _on_level2_pressed():
+	gotoisle2 = true
+
+func _on_level3_pressed():
+	gotoisle3 = true
+
+func _process(delta):	
+	if gotoisle2 == true or gotoisle3 == true:
+		P.unit_offset += 0.01
+	
+	# if on isle 2
+	if P.unit_offset >= 0.57:
+		P.scale=Vector2(-1,1)
+		P.h_offset=100
+		gotoisle2 = false
+	
+	# if on 
+	if P.unit_offset >= 1.0:
+		gotoisle3 = false
+
