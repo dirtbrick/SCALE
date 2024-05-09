@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://graphics/WaterBackground.png" type="Texture" id=2]
@@ -7,21 +7,6 @@
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 3 )
 region_rect = Rect2( 940, 1141, 333, 198 )
-
-[sub_resource type="GDScript" id=3]
-script/source = "extends Button
-
-const lines: Array = [#array of string
-	\"gddtydfhcghvghv\",
-	\"iubivgjvghbib\",
-	\"bh\",
-	\"uyvghvghvyivyvyivyjvyivyuvyudtufyufuyfyuctyd6u\"
-]
-
-func _ready():
-	pass
-
-"
 
 [node name="Tutorial" type="Control"]
 anchor_right = 1.0
@@ -40,8 +25,6 @@ margin_top = 688.0
 margin_right = 468.0
 margin_bottom = 943.0
 custom_styles/disabled = SubResource( 1 )
-disabled = true
 shortcut_in_tooltip = false
-script = SubResource( 3 )
 
 [connection signal="pressed" from="Tortol" to="." method="_on_Tortol_pressed"]

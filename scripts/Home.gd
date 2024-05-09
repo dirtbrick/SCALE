@@ -52,3 +52,7 @@ func _on_Button_pressed():
 
 func _on_TUTORIAL_pressed():
 	SceneTransition.change_scene("res://scenes/Tutorial.tscn")
+
+
+func _on_SETTINGS_pressed():
+	pass # Replace with function body.

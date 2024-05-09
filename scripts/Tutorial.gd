@@ -2,7 +2,6 @@ extends Control
 
 func _ready():
 	pass
-
 const lines: Array = [#array of string
 	"gddtydfhcghvghv",
 	"iubivgjvghbib",
@@ -12,3 +11,4 @@ const lines: Array = [#array of string
 
 func _on_Tortol_pressed():
 	DialogManager.start_dialog(get_global_transform().origin,lines)
+
