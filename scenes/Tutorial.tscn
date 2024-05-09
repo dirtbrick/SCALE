@@ -25,6 +25,6 @@ margin_top = 688.0
 margin_right = 468.0
 margin_bottom = 943.0
 custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+disabled = true
 shortcut_in_tooltip = false
-
-[connection signal="pressed" from="Tortol" to="." method="_on_Tortol_pressed"]

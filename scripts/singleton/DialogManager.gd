@@ -18,11 +18,9 @@ func start_dialog(position: Vector2, lines: Array): #array string
 	
 	dialog_lines = lines
 	text_box_position = position
-	print(position)
 	_show_text_box()
 	
 	is_dialog_active = true
-	print("0")
 
 
 func _show_text_box():
@@ -30,13 +28,11 @@ func _show_text_box():
 	text_box.connect("finished_displaying", self, "_on_text_box_finished_displaying")
 	get_tree().root.add_child(text_box)
 	text_box.get_global_transform().origin = text_box_position
-	print(text_box.get_global_transform().origin)
 	text_box.display_text(dialog_lines[current_line_index])
 	can_advance_line = false
 	
 func _on_text_box_finished_displaying():
 	can_advance_line = true
-	print("1")
 
 func _input(event):
 	if (

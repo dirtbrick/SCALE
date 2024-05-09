@@ -1,14 +1,13 @@
 extends Control
 
 func _ready():
-	pass
+	DialogManager.start_dialog(get_global_transform().origin,lines)
+
 const lines: Array = [#array of string
-	"gddtydfhcghvghv",
-	"iubivgjvghbib",
+	"gddt' ydfhcghvghv",
+	"iubiv. gjvg hbib",
 	"bh",
-	"uyvghvghvyivyvyivyjvyivyuvyudtufyufuyfyuctyd6u"
+	"uyvghv? ghvyivyvyivyjvyivyuvyudtufyufuyfyuctyd6u"
 ]
 
-func _on_Tortol_pressed():
-	DialogManager.start_dialog(get_global_transform().origin,lines)
 
