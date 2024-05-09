@@ -1,13 +1,16 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://graphics/ui_set_2.png" type="Texture" id=1]
 [ext_resource path="res://scripts/LevelSelect.gd" type="Script" id=2]
 [ext_resource path="res://graphics/LevelBackground.png" type="Texture" id=3]
-[ext_resource path="res://graphics/MainButtons.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 4 )
-region_rect = Rect2( 938, 1535, 333, 331 )
+texture = ExtResource( 1 )
+region_rect = Rect2( 72, 44, 576, 572 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 1 )
+region_rect = Rect2( 756, 1364, 176, 164 )
 
 [sub_resource type="Curve2D" id=2]
 _data = {
@@ -15,8 +18,8 @@ _data = {
 }
 
 [sub_resource type="StyleBoxTexture" id=3]
-texture = ExtResource( 4 )
-region_rect = Rect2( 940, 1141, 333, 198 )
+texture = ExtResource( 1 )
+region_rect = Rect2( 751, 144, 553, 405 )
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
@@ -62,35 +65,77 @@ margin_bottom = -224.0
 rect_pivot_offset = Vector2( 86, 561 )
 custom_styles/normal = SubResource( 1 )
 
-[node name="random level design" type="Sprite" parent="Levels"]
-position = Vector2( 448, -221 )
-texture = ExtResource( 1 )
-offset = Vector2( -549, 58 )
+[node name="random level design" type="Button" parent="Levels"]
+margin_left = -127.0
+margin_top = -187.0
+margin_right = -83.0
+margin_bottom = -147.0
+custom_styles/disabled = SubResource( 4 )
+disabled = true
+shortcut_in_tooltip = false
 
-[node name="random level design2" type="Sprite" parent="Levels"]
-position = Vector2( 385, -130 )
-texture = ExtResource( 1 )
-offset = Vector2( -441, 60 )
+[node name="random level design2" type="Button" parent="Levels"]
+margin_left = -84.0
+margin_top = -90.0
+margin_right = -40.0
+margin_bottom = -50.0
+custom_styles/disabled = SubResource( 4 )
+disabled = true
+shortcut_in_tooltip = false
 
-[node name="random level design3" type="Sprite" parent="Levels"]
-position = Vector2( 360, -25 )
-texture = ExtResource( 1 )
-offset = Vector2( -339, 61 )
+[node name="random level design3" type="Button" parent="Levels"]
+margin_left = -28.0
+margin_top = -33.0
+margin_right = 16.0
+margin_bottom = 7.0
+custom_styles/disabled = SubResource( 4 )
+disabled = true
+shortcut_in_tooltip = false
 
-[node name="random level design4" type="Sprite" parent="Levels"]
-position = Vector2( 742, 121 )
-texture = ExtResource( 1 )
-offset = Vector2( -549, 58 )
+[node name="random level design4" type="Button" parent="Levels"]
+margin_left = 46.0
+margin_top = 19.0
+margin_right = 90.0
+margin_bottom = 59.0
+custom_styles/disabled = SubResource( 4 )
+disabled = true
+shortcut_in_tooltip = false
 
-[node name="random level design5" type="Sprite" parent="Levels"]
-position = Vector2( 544, 195 )
-texture = ExtResource( 1 )
-offset = Vector2( -441, 60 )
+[node name="random level design5" type="Button" parent="Levels"]
+margin_left = 175.0
+margin_top = 159.0
+margin_right = 219.0
+margin_bottom = 199.0
+custom_styles/disabled = SubResource( 4 )
+disabled = true
+shortcut_in_tooltip = false
 
-[node name="random level design6" type="Sprite" parent="Levels"]
-position = Vector2( 323, 231 )
-texture = ExtResource( 1 )
-offset = Vector2( -339, 61 )
+[node name="random level design6" type="Button" parent="Levels"]
+margin_left = 114.0
+margin_top = 220.0
+margin_right = 158.0
+margin_bottom = 260.0
+custom_styles/disabled = SubResource( 4 )
+disabled = true
+shortcut_in_tooltip = false
+
+[node name="random level design7" type="Button" parent="Levels"]
+margin_left = 23.0
+margin_top = 255.0
+margin_right = 67.0
+margin_bottom = 295.0
+custom_styles/disabled = SubResource( 4 )
+disabled = true
+shortcut_in_tooltip = false
+
+[node name="random level design8" type="Button" parent="Levels"]
+margin_left = -55.0
+margin_top = 267.0
+margin_right = -11.0
+margin_bottom = 307.0
+custom_styles/disabled = SubResource( 4 )
+disabled = true
+shortcut_in_tooltip = false
 
 [node name="Path2D" type="Path2D" parent="Levels"]
 curve = SubResource( 2 )

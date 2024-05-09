@@ -3,7 +3,7 @@ extends MarginContainer
 onready var label = $MarginContainer/Label
 onready var timer = $LetterDisplayTimer
 
-const MAX_WIDTH = 1000
+const MAX_WIDTH = 400
 
 var text = ""
 var letter_index = 0
@@ -18,10 +18,16 @@ func display_text(text_to_disp: String):
 	print("text",text_to_disp)
 	text = text_to_disp
 	label.text = text
+	
+	rect_min_size.x = min(rect_size.x,MAX_WIDTH)
+	if rect_size.x > MAX_WIDTH:
+		label.autowrap=true
+		yield(self,"resized") # wait for x
+		yield(self,"resized") # wait for y
+		rect_min_size.y = rect_size.y
 	"""
 	yield(self,"resized")
 	rect_min_size.x = min(rect_size.x,MAX_WIDTH)
-	
 	if rect_size.x > MAX_WIDTH:
 		label.autowrap=true
 		yield(self,"resized") # wait for x
@@ -33,7 +39,7 @@ func display_text(text_to_disp: String):
 	_display_letter()
 
 func _display_letter():
-	label.text += text[letter_index]
+	label.text += text[letter_index] if label.text.length() % 50 != 0 else "\n" + text[letter_index]
 	letter_index += 1
 	if letter_index >= text.length():
 		emit_signal("finished_displaying")
