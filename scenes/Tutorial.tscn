@@ -7,6 +7,8 @@
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 3 )
 region_rect = Rect2( 751, 144, 553, 405 )
+margin_left = 90.3644
+margin_top = 55.0044
 
 [node name="Tutorial" type="Control"]
 anchor_right = 1.0
@@ -20,10 +22,10 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="Tortol" type="Button" parent="."]
-margin_left = 21.0
-margin_top = 670.0
-margin_right = 474.0
-margin_bottom = 925.0
+margin_left = 51.0
+margin_top = 714.0
+margin_right = 504.0
+margin_bottom = 969.0
 custom_styles/disabled = SubResource( 1 )
 custom_styles/normal = SubResource( 1 )
 disabled = true

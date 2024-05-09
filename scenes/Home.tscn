@@ -49,7 +49,8 @@ region_rect = Rect2( -58, 2085, 1082, 911 )
 
 [sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 2 )
-region_rect = Rect2( 751, 144, 553, 405 )
+region_rect = Rect2( 682, 27, 645, 610 )
+margin_top = 608.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "HomePanelRight"
@@ -166,10 +167,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 60.0
-margin_top = 150.0
-margin_right = 498.0
-margin_bottom = 304.0
+margin_left = 66.0
+margin_top = -101.0
+margin_right = 504.0
+margin_bottom = 521.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 0, 96 )

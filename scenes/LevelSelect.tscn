@@ -6,7 +6,7 @@
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
-region_rect = Rect2( 72, 44, 576, 572 )
+region_rect = Rect2( 127, 102, 507, 504 )
 
 [sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 1 )
@@ -47,6 +47,10 @@ margin_left = -252.0
 margin_top = 193.0
 margin_right = -81.0
 margin_bottom = 371.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 1 )
 custom_styles/normal = SubResource( 1 )
 
 [node name="level2" type="Button" parent="Levels"]
@@ -55,6 +59,10 @@ margin_top = -64.0
 margin_right = 264.0
 margin_bottom = 114.0
 rect_pivot_offset = Vector2( 86, 561 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 1 )
 custom_styles/normal = SubResource( 1 )
 
 [node name="level3" type="Button" parent="Levels"]
@@ -63,6 +71,10 @@ margin_top = -402.0
 margin_right = -6.0
 margin_bottom = -224.0
 rect_pivot_offset = Vector2( 86, 561 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 1 )
 custom_styles/normal = SubResource( 1 )
 
 [node name="random level design" type="Button" parent="Levels"]
@@ -146,8 +158,12 @@ rotate = false
 loop = false
 
 [node name="Button" type="Button" parent="Levels/Path2D/PathFollow2D"]
-margin_right = 125.0
-margin_bottom = 70.0
+margin_left = 79.0
+margin_top = -45.0
+margin_right = 224.0
+margin_bottom = 88.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 3 )
 
 [connection signal="pressed" from="Levels/level1" to="." method="_on_level1_pressed"]
