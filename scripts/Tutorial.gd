@@ -1,8 +1,8 @@
 extends Control
 
 func _ready():
-	DialogManager.start_dialog(get_global_transform().origin,lines)
-
+	#DialogManager.start_dialog(get_global_transform().origin,lines)
+	pass
 const lines: Array = [#array of string
 	"Hello! Remember exponentiation?",
 	"[2^3=?] This equation tells yoou to multiply 2 by itself 3 times!",
