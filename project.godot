@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "RichTextEffect",
+"class": "RichTextLogarithm",
+"language": "GDScript",
+"path": "res://scripts/richtexteffects/log_base_effect.gd"
+} ]
+_global_script_class_icons={
+"RichTextLogarithm": ""
+}
+
 [application]
 
 config/name="Ludumathica"
@@ -19,13 +29,14 @@ config/icon="res://icon.png"
 
 SceneTransition="*res://scenes/ui/SceneTransition.tscn"
 DialogManager="*res://scripts/singleton/DialogManager.gd"
+Math="*res://scripts/singleton/Math.gd"
 
 [display]
 
 window/size/width=1080
 window/size/height=1080
-window/size/test_width=400
-window/size/test_height=540
+window/size/test_width=270
+window/size/test_height=480
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
