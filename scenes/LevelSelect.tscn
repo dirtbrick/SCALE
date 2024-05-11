@@ -30,11 +30,11 @@ region_rect = Rect2( 127, 102, 507, 504 )
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
+[sub_resource type="StyleBoxEmpty" id=6]
+
 [sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 1 )
 region_rect = Rect2( 98, 50, 618, 594 )
-
-[sub_resource type="StyleBoxEmpty" id=6]
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
@@ -168,9 +168,7 @@ custom_styles/focus = SubResource( 1 )
 custom_styles/disabled = SubResource( 1 )
 custom_styles/normal = SubResource( 1 )
 
-[node name="Tween" type="Tween" parent="Levels"]
-
-[node name="Back" type="Button" parent="Levels/Tween"]
+[node name="Back" type="Button" parent="Levels"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = -35.0
@@ -182,7 +180,7 @@ custom_colors/font_color = Color( 0.901961, 0.941176, 0.909804, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.952941, 0.952941, 1 )
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 7 )
-custom_styles/pressed = SubResource( 5 )
+custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 6 )
 custom_styles/disabled = SubResource( 5 )
 custom_styles/normal = SubResource( 7 )
@@ -193,5 +191,5 @@ text = "Back"
 [connection signal="pressed" from="Levels/AspectRatioContainer/GridContainer/level3" to="." method="_on_level3_pressed"]
 [connection signal="pressed" from="Levels/AspectRatioContainer/GridContainer/level2" to="." method="_on_level2_pressed"]
 [connection signal="pressed" from="Levels/AspectRatioContainer/GridContainer/level1" to="." method="_on_level1_pressed"]
-[connection signal="button_down" from="Levels/Tween/Back" to="." method="_on_Back_button_down"]
-[connection signal="pressed" from="Levels/Tween/Back" to="." method="_on_Back_pressed"]
+[connection signal="button_down" from="Levels/Back" to="." method="_on_Back_button_down"]
+[connection signal="pressed" from="Levels/Back" to="." method="_on_Back_pressed"]

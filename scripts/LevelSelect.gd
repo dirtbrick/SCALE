@@ -2,7 +2,7 @@
 extends Control
 
 onready var P=$Levels/AspectRatioContainer/GridContainer/Path2D/PathFollow2D
-
+onready var back = $Levels/Back
 func _ready():
 	pass
 
@@ -55,4 +55,8 @@ func _process(delta):
 
 
 func _on_Back_button_down():
-	pass # Replace with function body.
+	var tween:=create_tween().set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	back.rect_scale = Vector2(0.8,0.8)
+	back.rect_rotation = -15.0
+	tween.tween_property(back, "rect_scale", Vector2.ONE, 0.5)
+	tween.parallel().tween_property(back, "rect_rotation", 0.0, 0.5)
