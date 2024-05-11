@@ -54,9 +54,7 @@ func _process(delta):
 
 
 
-func _on_Back_button_down():
-	var tween:=create_tween().set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
-	back.rect_scale = Vector2(0.8,0.8)
-	back.rect_rotation = -15.0
-	tween.tween_property(back, "rect_scale", Vector2.ONE, 0.5)
-	tween.parallel().tween_property(back, "rect_rotation", 0.0, 0.5)
+func _on_Back_button_down():ButtonAnimations.animate(back,ButtonAnimations.RBOUNCE)
+
+
+func _on_Back_button_up(): ButtonAnimations.animate(back,ButtonAnimations.BOUNCE)

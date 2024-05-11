@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Button",
+"class": "ButtonAnimation",
+"language": "GDScript",
+"path": "res://scripts/singleton/ButtonAnimations.gd"
+}, {
 "base": "RichTextEffect",
 "class": "RichTextLogarithm",
 "language": "GDScript",
 "path": "res://scripts/richtexteffects/log_base_effect.gd"
 } ]
 _global_script_class_icons={
+"ButtonAnimation": "",
 "RichTextLogarithm": ""
 }
 
@@ -30,6 +36,7 @@ config/icon="res://icon.png"
 SceneTransition="*res://scenes/ui/SceneTransition.tscn"
 DialogManager="*res://scripts/singleton/DialogManager.gd"
 Math="*res://scripts/singleton/Math.gd"
+ButtonAnimations="*res://scripts/singleton/ButtonAnimations.gd"
 
 [display]
 
