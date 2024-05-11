@@ -1,30 +1,48 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://graphics/ui_set_2.png" type="Texture" id=1]
 [ext_resource path="res://scripts/LevelSelect.gd" type="Script" id=2]
 [ext_resource path="res://graphics/LevelBackground.png" type="Texture" id=3]
+[ext_resource path="res://fonts/lazy_dog.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
 region_rect = Rect2( 127, 102, 507, 504 )
 
-[sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 1 )
-region_rect = Rect2( 756, 1364, 176, 164 )
-
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -191, 328, -16.8179, 2.52269, 16.8179, -2.52269, -19, 287, -59.8678, 21.6514, 59.8678, -21.6514, 97, 259, -16.0181, 40.0452, 16.0181, -40.0452, 197, 180, 40.5866, 14.1581, -40.5866, -14.1581, 154, 57, 30.204, 27.3724, -30.204, -27.3724, 21, 21, -4.71937, -5.66325, 4.71937, 5.66325, -65, -76, 3.6956, 51.7384, -3.6956, -51.7384, -107, -167, 0, 0, 0, 0, -88, -271 )
+"points": PoolVector2Array( 0, 0, 0, 0, 11.0038, 296.715, 0, 0, 0, 0, 59.6942, 315.102, -15.3853, 10.7798, 15.3853, -10.7798, 168.211, 297.709, -42.6771, 57.4323, 42.6771, -57.4323, 253.02, 210.745, -16.0181, 40.0452, 16.0181, -40.0452, 306.886, 109.133, 40.5866, 14.1581, -40.5866, -14.1581, 230.099, -2.54779, 36.813, 16.8146, -36.813, -16.8146, 3.17639, -21.7715, -4.71937, -5.66325, 4.71937, 5.66325, -107.993, -104.159, 3.6956, 51.7384, -3.6956, -51.7384, -161.285, -229.689, 0, 0, 0, 0, -153.263, -293.651 )
 }
 
 [sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 1 )
 region_rect = Rect2( 751, 144, 553, 405 )
 
+[sub_resource type="DynamicFont" id=4]
+size = 127
+outline_size = 8
+outline_color = Color( 0.0705882, 0.337255, 0.294118, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 1 )
+region_rect = Rect2( 127, 102, 507, 504 )
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 1 )
+region_rect = Rect2( 98, 50, 618, 594 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -37,137 +55,143 @@ expand = true
 stretch_mode = 7
 
 [node name="Levels" type="Control" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="level1" type="Button" parent="Levels"]
-margin_left = -252.0
-margin_top = 193.0
-margin_right = -81.0
-margin_bottom = 371.0
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 1 )
-custom_styles/focus = SubResource( 1 )
-custom_styles/disabled = SubResource( 1 )
-custom_styles/normal = SubResource( 1 )
-
-[node name="level2" type="Button" parent="Levels"]
-margin_left = 93.0
-margin_top = -64.0
-margin_right = 264.0
-margin_bottom = 114.0
-rect_pivot_offset = Vector2( 86, 561 )
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 1 )
-custom_styles/focus = SubResource( 1 )
-custom_styles/disabled = SubResource( 1 )
-custom_styles/normal = SubResource( 1 )
-
-[node name="level3" type="Button" parent="Levels"]
-margin_left = -177.0
-margin_top = -402.0
-margin_right = -6.0
-margin_bottom = -224.0
-rect_pivot_offset = Vector2( 86, 561 )
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 1 )
-custom_styles/focus = SubResource( 1 )
-custom_styles/disabled = SubResource( 1 )
-custom_styles/normal = SubResource( 1 )
-
-[node name="random level design" type="Button" parent="Levels"]
-margin_left = -127.0
-margin_top = -187.0
-margin_right = -83.0
-margin_bottom = -147.0
-custom_styles/disabled = SubResource( 4 )
-disabled = true
-shortcut_in_tooltip = false
-
-[node name="random level design2" type="Button" parent="Levels"]
-margin_left = -84.0
-margin_top = -90.0
-margin_right = -40.0
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Levels"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
 margin_bottom = -50.0
-custom_styles/disabled = SubResource( 4 )
-disabled = true
-shortcut_in_tooltip = false
 
-[node name="random level design3" type="Button" parent="Levels"]
-margin_left = -28.0
-margin_top = -33.0
-margin_right = 16.0
-margin_bottom = 7.0
-custom_styles/disabled = SubResource( 4 )
-disabled = true
-shortcut_in_tooltip = false
+[node name="GridContainer" type="GridContainer" parent="Levels/AspectRatioContainer"]
+margin_right = 980.0
+margin_bottom = 980.0
+columns = 3
 
-[node name="random level design4" type="Button" parent="Levels"]
-margin_left = 46.0
-margin_top = 19.0
-margin_right = 90.0
-margin_bottom = 59.0
-custom_styles/disabled = SubResource( 4 )
-disabled = true
-shortcut_in_tooltip = false
+[node name="level3" type="Button" parent="Levels/AspectRatioContainer/GridContainer"]
+margin_right = 324.0
+margin_bottom = 324.0
+rect_pivot_offset = Vector2( 86, 561 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
 
-[node name="random level design5" type="Button" parent="Levels"]
-margin_left = 175.0
-margin_top = 159.0
-margin_right = 219.0
-margin_bottom = 199.0
-custom_styles/disabled = SubResource( 4 )
-disabled = true
-shortcut_in_tooltip = false
+[node name="placeholder" type="Label" parent="Levels/AspectRatioContainer/GridContainer"]
+margin_left = 328.0
+margin_right = 652.0
+margin_bottom = 324.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="random level design6" type="Button" parent="Levels"]
-margin_left = 114.0
-margin_top = 220.0
-margin_right = 158.0
-margin_bottom = 260.0
-custom_styles/disabled = SubResource( 4 )
-disabled = true
-shortcut_in_tooltip = false
+[node name="placeholder4" type="Label" parent="Levels/AspectRatioContainer/GridContainer"]
+margin_left = 656.0
+margin_right = 980.0
+margin_bottom = 324.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="random level design7" type="Button" parent="Levels"]
-margin_left = 23.0
-margin_top = 255.0
-margin_right = 67.0
-margin_bottom = 295.0
-custom_styles/disabled = SubResource( 4 )
-disabled = true
-shortcut_in_tooltip = false
+[node name="placeholder2" type="Label" parent="Levels/AspectRatioContainer/GridContainer"]
+margin_top = 328.0
+margin_right = 324.0
+margin_bottom = 652.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="random level design8" type="Button" parent="Levels"]
-margin_left = -55.0
-margin_top = 267.0
-margin_right = -11.0
-margin_bottom = 307.0
-custom_styles/disabled = SubResource( 4 )
-disabled = true
-shortcut_in_tooltip = false
-
-[node name="Path2D" type="Path2D" parent="Levels"]
+[node name="Path2D" type="Path2D" parent="Levels/AspectRatioContainer/GridContainer"]
+position = Vector2( 423.457, 521.783 )
+scale = Vector2( 1.74509, 1.0924 )
+z_index = 1
 curve = SubResource( 2 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Levels/Path2D"]
-position = Vector2( -191, 328 )
+[node name="PathFollow2D" type="PathFollow2D" parent="Levels/AspectRatioContainer/GridContainer/Path2D"]
+position = Vector2( 11.0038, 296.715 )
 rotate = false
 loop = false
 
-[node name="Button" type="Button" parent="Levels/Path2D/PathFollow2D"]
-margin_left = 79.0
-margin_top = -45.0
-margin_right = 224.0
-margin_bottom = 88.0
+[node name="Button" type="Button" parent="Levels/AspectRatioContainer/GridContainer/Path2D/PathFollow2D"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -38.4984
+margin_top = -87.8275
+margin_right = 56.5016
+margin_bottom = 55.1725
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 3 )
 custom_styles/normal = SubResource( 3 )
 
-[connection signal="pressed" from="Levels/level1" to="." method="_on_level1_pressed"]
-[connection signal="pressed" from="Levels/level2" to="." method="_on_level2_pressed"]
-[connection signal="pressed" from="Levels/level3" to="." method="_on_level3_pressed"]
+[node name="placeholder3" type="Label" parent="Levels/AspectRatioContainer/GridContainer"]
+margin_left = 328.0
+margin_top = 328.0
+margin_right = 652.0
+margin_bottom = 652.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="level2" type="Button" parent="Levels/AspectRatioContainer/GridContainer"]
+margin_left = 656.0
+margin_top = 328.0
+margin_right = 980.0
+margin_bottom = 652.0
+rect_pivot_offset = Vector2( 86, 561 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+
+[node name="placeholder5" type="Label" parent="Levels/AspectRatioContainer/GridContainer"]
+margin_top = 811.0
+margin_right = 324.0
+margin_bottom = 825.0
+
+[node name="level1" type="Button" parent="Levels/AspectRatioContainer/GridContainer"]
+margin_left = 328.0
+margin_top = 656.0
+margin_right = 652.0
+margin_bottom = 980.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="Levels"]
+
+[node name="Back" type="Button" parent="Levels/Tween"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -35.0
+margin_top = -232.0
+margin_right = 282.0
+margin_bottom = 60.0
+custom_colors/font_color_disabled = Color( 1, 0.952941, 0.952941, 1 )
+custom_colors/font_color = Color( 0.901961, 0.941176, 0.909804, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.952941, 0.952941, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 7 )
+shortcut_in_tooltip = false
+keep_pressed_outside = true
+text = "Back"
+
+[connection signal="pressed" from="Levels/AspectRatioContainer/GridContainer/level3" to="." method="_on_level3_pressed"]
+[connection signal="pressed" from="Levels/AspectRatioContainer/GridContainer/level2" to="." method="_on_level2_pressed"]
+[connection signal="pressed" from="Levels/AspectRatioContainer/GridContainer/level1" to="." method="_on_level1_pressed"]
+[connection signal="button_down" from="Levels/Tween/Back" to="." method="_on_Back_button_down"]
+[connection signal="pressed" from="Levels/Tween/Back" to="." method="_on_Back_pressed"]

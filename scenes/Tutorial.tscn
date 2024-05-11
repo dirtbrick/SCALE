@@ -1,9 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://graphics/WaterBackground.png" type="Texture" id=2]
 [ext_resource path="res://fonts/lazy_dog.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://graphics/TutorialButtons.png" type="Texture" id=4]
+[ext_resource path="res://scripts/richtexteffects/log_base_effect.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=3]
+size = 45
+font_data = ExtResource( 3 )
+
+[sub_resource type="RichTextEffect" id=4]
+script = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 115
@@ -25,33 +33,37 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
-anchor_left = 0.05
-anchor_right = 0.07
-anchor_bottom = 0.4
-margin_left = -3.0
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.409
+margin_left = -489.0
 margin_top = 3.0
-margin_right = 3.4
-margin_bottom = 10.0
+margin_right = -461.0
+margin_bottom = 0.279999
 texture = ExtResource( 4 )
 region_rect = Rect2( 47, 146, 31, 557 )
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="."]
-anchor_left = 0.93
-anchor_right = 0.95
-anchor_bottom = 0.4
-margin_left = -3.40002
-margin_top = 3.0
-margin_right = 5.0
-margin_bottom = 10.0
+anchor_left = 0.5
+anchor_top = 0.003
+anchor_right = 0.5
+anchor_bottom = 0.409
+margin_left = 461.0
+margin_top = -0.24
+margin_right = 491.0
+margin_bottom = 0.279999
 texture = ExtResource( 4 )
 region_rect = Rect2( 47, 146, 31, 557 )
 
 [node name="NinePatchRect4" type="NinePatchRect" parent="."]
-anchor_left = 0.05
-anchor_top = 0.05
-anchor_right = 0.95
+anchor_left = 0.5
+anchor_top = 0.214
+anchor_right = 0.5
 anchor_bottom = 0.214
-margin_bottom = 0.479996
+margin_left = -486.0
+margin_top = -177.12
+margin_right = 486.0
+margin_bottom = 0.47998
 texture = ExtResource( 4 )
 region_rect = Rect2( 104, 84, 776, 219 )
 patch_margin_left = 232
@@ -59,32 +71,45 @@ patch_margin_top = 35
 patch_margin_right = 249
 patch_margin_bottom = 36
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="NinePatchRect4"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_right = 5.0
+margin_bottom = 22.4
+alignment = 1
 
-[node name="Label" type="Label" parent="NinePatchRect4/AspectRatioContainer"]
-margin_left = 36.5
-margin_top = 30.0
-margin_right = 935.5
-margin_bottom = 146.0
-custom_colors/font_color = Color( 0.929412, 0.819608, 0.819608, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Le Logarithm Ruleset"
-align = 1
-valign = 1
+[node name="Label" type="RichTextLabel" parent="NinePatchRect4/VBoxContainer"]
+margin_right = 972.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+size_flags_vertical = 0
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center][valign]log[_]10[/_](x)=a"
+text = "[valign]log10(x)=a"
+scroll_active = false
+custom_effects = [ SubResource( 4 ) ]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="NinePatchRect4"]
+anchor_left = 0.005
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.14
+margin_top = -177.6
+margin_right = 5.0
+rect_scale = Vector2( 0.963687, 1 )
+ratio = 0.9999
+stretch_mode = 0
 
 [node name="NinePatchRect5" type="NinePatchRect" parent="."]
-anchor_left = 0.05
+anchor_left = 0.5
 anchor_top = 0.4
-anchor_right = 0.969
-anchor_bottom = 1.0
-margin_left = -2.0
+anchor_right = 0.5
+anchor_bottom = 0.4
+margin_left = -488.0
 margin_top = -4.0
-margin_right = -0.52002
-margin_bottom = -3.0
+margin_right = 506.0
+margin_bottom = 645.0
 texture = ExtResource( 4 )
 region_rect = Rect2( 100, 363, 800, 497 )
 patch_margin_left = 232
@@ -93,10 +118,10 @@ patch_margin_right = 249
 patch_margin_bottom = 36
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="NinePatchRect5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.985
 margin_left = 15.0
-margin_right = -15.0
+margin_right = -0.0900879
+margin_bottom = 649.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect5/AspectRatioContainer"]
 margin_left = 83.0
@@ -176,3 +201,7 @@ custom_fonts/font = SubResource( 1 )
 text = "Argument"
 align = 1
 valign = 1
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0

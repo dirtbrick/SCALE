@@ -4,14 +4,14 @@
 [ext_resource path="res://graphics/ui_set_2.png" type="Texture" id=2]
 [ext_resource path="res://scripts/singleton/swipedetector.gd" type="Script" id=3]
 [ext_resource path="res://scripts/Home.gd" type="Script" id=4]
-[ext_resource path="res://graphics/Design.png" type="Texture" id=5]
+[ext_resource path="res://graphics/MainButtons2.png" type="Texture" id=5]
 [ext_resource path="res://graphics/BeachBackground.png" type="Texture" id=6]
-[ext_resource path="res://graphics/Design (1).png" type="Texture" id=7]
 [ext_resource path="res://fonts/lazy_dog.ttf" type="DynamicFontData" id=8]
 
-[sub_resource type="StyleBoxTexture" id=7]
-texture = ExtResource( 1 )
-region_rect = Rect2( 55, 723, 1818, 411 )
+[sub_resource type="DynamicFont" id=23]
+size = 61
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxTexture" id=17]
 texture = ExtResource( 5 )
@@ -24,7 +24,7 @@ region_rect = Rect2( 20, 30, 301, 277 )
 [sub_resource type="StyleBoxEmpty" id=19]
 
 [sub_resource type="DynamicFont" id=18]
-size = 50
+size = 59
 font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxTexture" id=11]
@@ -41,11 +41,6 @@ margin_top = 120.0
 
 [sub_resource type="StyleBoxEmpty" id=14]
 
-[sub_resource type="StyleBoxTexture" id=9]
-texture = ExtResource( 7 )
-region_rect = Rect2( 1050, 1040, 1230, 1040 )
-margin_bottom = 50.0
-
 [sub_resource type="StyleBoxTexture" id=13]
 texture = ExtResource( 5 )
 region_rect = Rect2( 411, 798, 309, 265 )
@@ -58,8 +53,17 @@ region_rect = Rect2( 26, 808, 310, 245 )
 
 [sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 2 )
-region_rect = Rect2( 682, 27, 645, 610 )
-margin_top = 608.0
+region_rect = Rect2( 751, 144, 553, 405 )
+
+[sub_resource type="StyleBoxTexture" id=21]
+texture = ExtResource( 2 )
+region_rect = Rect2( 751, 144, 553, 405 )
+margin_left = 130.098
+margin_right = 233.826
+margin_top = 75.5977
+margin_bottom = 223.277
+
+[sub_resource type="StyleBoxEmpty" id=22]
 
 [sub_resource type="Animation" id=2]
 resource_name = "HomePanelRight"
@@ -85,57 +89,79 @@ script = ExtResource( 4 )
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -469.0
+margin_right = 4.0
+margin_bottom = 457.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 7
 
-[node name="RichTextLabel" type="Button" parent="."]
-anchor_top = 0.3
-anchor_right = 1.0
-anchor_bottom = 0.3
-margin_top = -208.0
-margin_bottom = -16.0
-rect_min_size = Vector2( 1080, 192 )
-custom_styles/disabled = SubResource( 7 )
-disabled = true
-shortcut_in_tooltip = false
-button_mask = 0
-text = "Ludumata"
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_left = 0.498
+anchor_top = 0.206
+anchor_right = 0.498
+anchor_bottom = 0.206
+margin_left = -537.84
+margin_top = -150.48
+margin_right = 537.16
+margin_bottom = 16.52
+texture = ExtResource( 1 )
+region_rect = Rect2( 55, 723, 1818, 411.003 )
+patch_margin_right = 166
+patch_margin_bottom = 167
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
-[node name="Navigation" type="Control" parent="."]
-anchor_top = 0.75
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
+anchor_left = 0.415
+anchor_top = 0.774
+anchor_right = 1.002
+anchor_bottom = 1.08
+margin_left = -12.955
+margin_top = 0.741989
+margin_right = -228.154
+margin_bottom = 5.64
+rect_rotation = -2.9
+custom_colors/default_color = Color( 0.552941, 0.415686, 0.937255, 1 )
+custom_fonts/bold_font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_enabled = true
+bbcode_text = "[center][wave]ver. Logarithms[/wave][/center]"
+text = "ver. Logarithms"
+scroll_active = false
+
+[node name="Navigation" type="AspectRatioContainer" parent="."]
+anchor_top = 0.276
 anchor_right = 1.0
-anchor_bottom = 0.75
+anchor_bottom = 1.0
+ratio = 1.2654
 
 [node name="GridContainer" type="GridContainer" parent="Navigation"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -440.0
-margin_top = -491.0
-margin_right = 440.0
-margin_bottom = 139.0
+margin_left = 45.2792
+margin_right = 1034.72
+margin_bottom = 781.92
 columns = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Navigation/GridContainer"]
-margin_right = 438.0
-margin_bottom = 208.0
+margin_right = 493.0
+margin_bottom = 258.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="Navigation/GridContainer/VBoxContainer"]
-margin_right = 438.0
-margin_bottom = 153.0
+margin_right = 493.0
+margin_bottom = 194.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 ratio = 1.5
 stretch_mode = 1
 
 [node name="PLAY" type="Button" parent="Navigation/GridContainer/VBoxContainer/AspectRatioContainer"]
-margin_left = 104.25
-margin_right = 333.75
-margin_bottom = 153.0
+margin_left = 101.0
+margin_right = 392.0
+margin_bottom = 194.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 0, 96 )
@@ -148,9 +174,9 @@ shortcut_in_tooltip = false
 keep_pressed_outside = true
 
 [node name="Label" type="Label" parent="Navigation/GridContainer/VBoxContainer"]
-margin_top = 157.0
-margin_right = 438.0
-margin_bottom = 208.0
+margin_top = 198.0
+margin_right = 493.0
+margin_bottom = 258.0
 custom_colors/font_color = Color( 0.643137, 0.454902, 0.454902, 1 )
 custom_fonts/font = SubResource( 18 )
 text = "PLAY"
@@ -158,35 +184,35 @@ align = 1
 valign = 1
 
 [node name="PLACEHOLDER3" type="Label" parent="Navigation/GridContainer"]
-margin_left = 442.0
-margin_top = 97.0
-margin_right = 880.0
-margin_bottom = 111.0
+margin_left = 497.0
+margin_top = 122.0
+margin_right = 989.0
+margin_bottom = 136.0
 
 [node name="PLACEHOLDER2" type="Label" parent="Navigation/GridContainer"]
-margin_top = 308.0
-margin_right = 438.0
-margin_bottom = 322.0
+margin_top = 384.0
+margin_right = 493.0
+margin_bottom = 398.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Navigation/GridContainer"]
-margin_left = 442.0
-margin_top = 212.0
-margin_right = 880.0
-margin_bottom = 419.0
+margin_left = 497.0
+margin_top = 262.0
+margin_right = 989.0
+margin_bottom = 520.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="Navigation/GridContainer/VBoxContainer2"]
-margin_right = 438.0
-margin_bottom = 152.0
+margin_right = 492.0
+margin_bottom = 194.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 ratio = 1.5
 
 [node name="SETTINGS" type="Button" parent="Navigation/GridContainer/VBoxContainer2/AspectRatioContainer"]
-margin_left = 105.0
-margin_right = 333.0
-margin_bottom = 152.0
+margin_left = 100.5
+margin_right = 391.5
+margin_bottom = 194.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 0, 96 )
@@ -195,13 +221,13 @@ size_flags_vertical = 3
 custom_styles/hover = SubResource( 11 )
 custom_styles/pressed = SubResource( 10 )
 custom_styles/focus = SubResource( 14 )
-custom_styles/disabled = SubResource( 9 )
+custom_styles/disabled = SubResource( 10 )
 custom_styles/normal = SubResource( 11 )
 
 [node name="Label" type="Label" parent="Navigation/GridContainer/VBoxContainer2"]
-margin_top = 156.0
-margin_right = 438.0
-margin_bottom = 207.0
+margin_top = 198.0
+margin_right = 492.0
+margin_bottom = 258.0
 custom_colors/font_color = Color( 0.643137, 0.454902, 0.454902, 1 )
 custom_fonts/font = SubResource( 18 )
 text = "SETTINGS"
@@ -209,23 +235,23 @@ align = 1
 valign = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Navigation/GridContainer"]
-margin_top = 423.0
-margin_right = 438.0
-margin_bottom = 630.0
+margin_top = 524.0
+margin_right = 493.0
+margin_bottom = 781.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="Navigation/GridContainer/VBoxContainer3"]
-margin_right = 438.0
-margin_bottom = 152.0
+margin_right = 493.0
+margin_bottom = 193.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 ratio = 1.5
 
 [node name="TUTORIAL" type="Button" parent="Navigation/GridContainer/VBoxContainer3/AspectRatioContainer"]
-margin_left = 105.0
-margin_right = 333.0
-margin_bottom = 152.0
+margin_left = 101.75
+margin_right = 391.25
+margin_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 0, 96 )
@@ -238,29 +264,37 @@ custom_styles/disabled = SubResource( 13 )
 custom_styles/normal = SubResource( 13 )
 
 [node name="Label" type="Label" parent="Navigation/GridContainer/VBoxContainer3"]
-margin_top = 156.0
-margin_right = 438.0
-margin_bottom = 207.0
+margin_top = 197.0
+margin_right = 493.0
+margin_bottom = 257.0
 custom_colors/font_color = Color( 0.643137, 0.454902, 0.454902, 1 )
 custom_fonts/font = SubResource( 18 )
 text = "TUTORIAL"
 align = 1
 valign = 1
 
-[node name="THETEAM" type="Button" parent="Navigation"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+anchor_left = 0.873
+anchor_right = 0.873
 anchor_bottom = 1.0
-margin_left = 66.0
-margin_top = -101.0
-margin_right = 504.0
-margin_bottom = 521.0
+margin_left = -299.84
+margin_top = 854.0
+margin_right = -37.84
+margin_bottom = 9.0
+rect_scale = Vector2( 1.147, 1 )
+stretch_mode = 0
+alignment_horizontal = 2
+alignment_vertical = 2
+
+[node name="THETEAM" type="Button" parent="AspectRatioContainer"]
+margin_top = -27.0
+margin_right = 262.0
+margin_bottom = 235.0
 grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 0, 96 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
+grow_vertical = 0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 21 )
+custom_styles/focus = SubResource( 22 )
 custom_styles/normal = SubResource( 6 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -273,16 +307,15 @@ anims/HomePanelRight = SubResource( 2 )
 
 [node name="Panel" type="Panel" parent="."]
 anchor_left = 1.0
-anchor_right = 1.0
+anchor_right = 3.269
 anchor_bottom = 1.0
-margin_left = 1080.0
-margin_right = 2160.0
+margin_left = 11.0
+margin_right = 0.47998
 
 [connection signal="resized" from="." to="." method="_on_Home_resized"]
 [connection signal="pressed" from="Navigation/GridContainer/VBoxContainer/AspectRatioContainer/PLAY" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Navigation/GridContainer/VBoxContainer2/AspectRatioContainer/SETTINGS" to="." method="_on_SETTINGS_pressed"]
 [connection signal="pressed" from="Navigation/GridContainer/VBoxContainer3/AspectRatioContainer/TUTORIAL" to="." method="_on_TUTORIAL_pressed"]
-[connection signal="pressed" from="Navigation/THETEAM" to="." method="_on_Button_pressed"]
 [connection signal="swipe_down" from="Camera2D" to="." method="_on_Camera2D_swipe_down"]
 [connection signal="swipe_left" from="Camera2D" to="." method="_on_Camera2D_swipe_left"]
 [connection signal="swipe_right" from="Camera2D" to="." method="_on_Camera2D_swipe_right"]
