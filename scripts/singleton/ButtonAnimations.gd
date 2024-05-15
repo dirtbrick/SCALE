@@ -7,7 +7,7 @@ enum{BOUNCE, RBOUNCE}
 func _ready():
 	pass # Replace with function body.
 
-func animate(node: Button, animation) -> bool:
+func animate(node: Button, animation) -> void:
 	var tween:=create_tween()
 	match animation:
 		BOUNCE:
@@ -22,4 +22,3 @@ func animate(node: Button, animation) -> bool:
 			node.rect_rotation = 0
 			tween.tween_property(node, "rect_scale", Vector2(0.8,0.8), 0.5)
 			tween.parallel().tween_property(node, "rect_rotation", 15.0, 0.5)
-	return true

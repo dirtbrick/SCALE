@@ -37,21 +37,15 @@ func _on_Home_resized():
 
 func _on_Button_pressed():
 	SceneTransition.change_scene("res://scenes/LevelSelect.tscn")
-	"""
-	yield(ANIMATION, 'animation_finished')
-	var MAINMENU = load("res://scenes/MainMenu.tscn")
-	self.remove_child(NAVIGATION)
-	self.remove_child(LUDUMATHICA)
-	NAVIGATION.call_deferred("free")
-	var MAINMENUINS = MAINMENU.instance()
-	self.add_child(MAINMENUINS)
-	ANIMATION.play("WaterTransitionDown")
-	"""
 
 
 func _on_TUTORIAL_pressed():
-	SceneTransition.change_scene("res://scenes/Tutorial.tscn")
-
-
+	SceneTransition.animate_change_scene("res://scenes/Tutorial.tscn",SceneTransition.SCOPE)
+	SceneTransition.animate_change_scene("res://scenes/Tutorial.tscn",SceneTransition.SCOPE,
+	[SceneTransition.add(),
+	yield(SceneTransition.play("ScopeIN1"),"completed"),
+	SceneTransition.change(),
+	yield(SceneTransition.play("ScopeIN2"),"completed"),
+	SceneTransition.remove()])
 func _on_SETTINGS_pressed():
 	pass # Replace with function body.
