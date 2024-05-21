@@ -236,3 +236,4 @@ text = "SUBMIT"
 [connection signal="pressed" from="AnswersContainer/VBoxContainer/HFlowContainer/Answer2" to="." method="_on_Answer2_pressed"]
 [connection signal="pressed" from="AnswersContainer/VBoxContainer/HFlowContainer2/Answer3" to="." method="_on_Answer3_pressed"]
 [connection signal="pressed" from="AnswersContainer/VBoxContainer/HFlowContainer2/Answer4" to="." method="_on_Answer4_pressed"]
+[connection signal="pressed" from="SubmitButtonContainer/SubmitButton" to="." method="_on_SubmitButton_pressed"]

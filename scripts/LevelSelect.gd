@@ -3,6 +3,7 @@ extends Control
 
 onready var P=$Levels/AspectRatioContainer/GridContainer/Path2D/PathFollow2D
 onready var back = $Levels/Back
+onready var level1 = $Levels/AspectRatioContainer/GridContainer/level1
 func _ready():
 	pass
 
@@ -59,6 +60,7 @@ func _process(delta):
 
 
 func _on_Back_button_down():ButtonAnimations.animate(back,ButtonAnimations.RBOUNCE)
-
-
 func _on_Back_button_up(): ButtonAnimations.animate(back,ButtonAnimations.BOUNCE)
+
+func _on_level1_button_down(): ButtonAnimations.animate(level1,ButtonAnimations.RSQUISH)
+func _on_level1_button_up(): ButtonAnimations.animate(level1,ButtonAnimations.SQUISH)

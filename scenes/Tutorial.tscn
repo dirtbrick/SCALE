@@ -1,16 +1,24 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://graphics/WaterBackground.png" type="Texture" id=2]
 [ext_resource path="res://fonts/lazy_dog.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://graphics/TutorialButtons.png" type="Texture" id=4]
 [ext_resource path="res://scripts/richtexteffects/log_base_effect.gd" type="Script" id=5]
+[ext_resource path="res://addons/label_font_auto_sizer/rich_label_auto_sizer.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=3]
 size = 45
 font_data = ExtResource( 3 )
 
 [sub_resource type="RichTextEffect" id=4]
+script = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 64
+font_data = ExtResource( 3 )
+
+[sub_resource type="RichTextEffect" id=6]
 script = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=1]
@@ -84,10 +92,33 @@ rect_min_size = Vector2( 200, 200 )
 size_flags_vertical = 0
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
-bbcode_text = "[center][valign]log[_]10[/_](x)=a"
-text = "[valign]log10(x)=a"
+bbcode_text = "[center]log[_]10[/_](x)=a"
+text = "log10(x)=a"
 scroll_active = false
 custom_effects = [ SubResource( 4 ) ]
+
+[node name="RichLabelAutoSizer" type="RichTextLabel" parent="NinePatchRect4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -481.0
+margin_top = -95.8
+margin_right = 491.0
+margin_bottom = 82.2
+rect_clip_content = false
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "log[_]10[/_](1000)=a"
+text = "log10(1000)=a"
+scroll_active = false
+custom_effects = [ SubResource( 6 ) ]
+script = ExtResource( 6 )
+_size_just_modified_by_autosizer = false
+_set_defaults = true
+_base_font_size = 64
+_current_font_size = 64
+_last_size_state = 1
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="NinePatchRect4"]
 anchor_left = 0.005
@@ -97,7 +128,6 @@ anchor_bottom = 1.0
 margin_left = 0.14
 margin_top = -177.6
 margin_right = 5.0
-rect_scale = Vector2( 0.963687, 1 )
 ratio = 0.9999
 stretch_mode = 0
 

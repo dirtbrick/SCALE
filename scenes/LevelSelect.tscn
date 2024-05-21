@@ -85,6 +85,47 @@ custom_styles/focus = SubResource( 1 )
 custom_styles/disabled = SubResource( 1 )
 custom_styles/normal = SubResource( 1 )
 
+[node name="ReferenceRect" type="NinePatchRect" parent="Levels/AspectRatioContainer/GridContainer/level3"]
+visible = false
+self_modulate = Color( 0.317647, 0.317647, 0.317647, 0.933333 )
+anchor_left = 0.451
+anchor_top = 0.062
+anchor_right = 0.451
+anchor_bottom = 0.062
+margin_left = -55.124
+margin_top = -53.088
+margin_right = 44.876
+margin_bottom = 46.912
+rect_scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 1, 392, 391 )
+
+[node name="ReferenceRect2" type="NinePatchRect" parent="Levels/AspectRatioContainer/GridContainer/level3"]
+visible = false
+anchor_left = 0.451
+anchor_top = 0.062
+anchor_right = 0.451
+anchor_bottom = 0.062
+margin_left = -45.124
+margin_top = -43.088
+margin_right = 54.876
+margin_bottom = 56.912
+rect_scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 5 )
+region_rect = Rect2( 406, 5, 385, 384 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Levels/AspectRatioContainer/GridContainer/level3"]
+anchor_left = 0.522
+anchor_top = 0.506
+anchor_right = 0.522
+anchor_bottom = 0.506
+margin_left = -44.128
+margin_top = -51.944
+margin_right = 39.872
+margin_bottom = 52.056
+texture = ExtResource( 5 )
+region_rect = Rect2( 73, 453, 246, 318 )
+
 [node name="placeholder" type="Label" parent="Levels/AspectRatioContainer/GridContainer"]
 margin_left = 328.0
 margin_right = 652.0
@@ -152,6 +193,47 @@ custom_styles/pressed = SubResource( 1 )
 custom_styles/focus = SubResource( 1 )
 custom_styles/disabled = SubResource( 1 )
 custom_styles/normal = SubResource( 1 )
+
+[node name="ReferenceRect" type="NinePatchRect" parent="Levels/AspectRatioContainer/GridContainer/level2"]
+visible = false
+self_modulate = Color( 0.317647, 0.317647, 0.317647, 0.933333 )
+anchor_left = 0.451
+anchor_top = 0.062
+anchor_right = 0.451
+anchor_bottom = 0.062
+margin_left = -55.124
+margin_top = -53.088
+margin_right = 44.876
+margin_bottom = 46.912
+rect_scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 1, 392, 391 )
+
+[node name="ReferenceRect2" type="NinePatchRect" parent="Levels/AspectRatioContainer/GridContainer/level2"]
+visible = false
+anchor_left = 0.451
+anchor_top = 0.062
+anchor_right = 0.451
+anchor_bottom = 0.062
+margin_left = -45.124
+margin_top = -43.088
+margin_right = 54.876
+margin_bottom = 56.912
+rect_scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 5 )
+region_rect = Rect2( 406, 5, 385, 384 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Levels/AspectRatioContainer/GridContainer/level2"]
+anchor_left = 0.522
+anchor_top = 0.506
+anchor_right = 0.522
+anchor_bottom = 0.506
+margin_left = -44.128
+margin_top = -51.944
+margin_right = 39.872
+margin_bottom = 52.056
+texture = ExtResource( 5 )
+region_rect = Rect2( 73, 453, 246, 318 )
 
 [node name="placeholder5" type="Label" parent="Levels/AspectRatioContainer/GridContainer"]
 margin_top = 811.0
@@ -221,6 +303,8 @@ text = "Back"
 
 [connection signal="pressed" from="Levels/AspectRatioContainer/GridContainer/level3" to="." method="_on_level3_pressed"]
 [connection signal="pressed" from="Levels/AspectRatioContainer/GridContainer/level2" to="." method="_on_level2_pressed"]
+[connection signal="button_down" from="Levels/AspectRatioContainer/GridContainer/level1" to="." method="_on_level1_button_down"]
+[connection signal="button_up" from="Levels/AspectRatioContainer/GridContainer/level1" to="." method="_on_level1_button_up"]
 [connection signal="pressed" from="Levels/AspectRatioContainer/GridContainer/level1" to="." method="_on_level1_pressed"]
 [connection signal="button_down" from="Levels/Back" to="." method="_on_Back_button_down"]
 [connection signal="button_up" from="Levels/Back" to="." method="_on_Back_button_up"]
