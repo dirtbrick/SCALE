@@ -16,3 +16,7 @@ const lines: Array = [#array of string
 ]
 
 
+
+
+func _on_NinePatchRect_pressed():
+	SceneTransition.change_scene("res://scenes/Home.tscn")

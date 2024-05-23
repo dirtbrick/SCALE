@@ -40,12 +40,13 @@ func _on_Button_pressed():
 
 
 func _on_TUTORIAL_pressed():
-	SceneTransition.animate_change_scene("res://scenes/Tutorial.tscn",SceneTransition.SCOPE)
+	SceneTransition.change_scene("res://scenes/Tutorial.tscn")
+	"""SceneTransition.animate_change_scene("res://scenes/Tutorial.tscn",SceneTransition.SCOPE)
 	SceneTransition.animate_change_scene("res://scenes/Tutorial.tscn",SceneTransition.SCOPE,
 	[SceneTransition.add(),
 	yield(SceneTransition.play("ScopeIN1"),"completed"),
 	SceneTransition.change(),
 	yield(SceneTransition.play("ScopeIN2"),"completed"),
-	SceneTransition.remove()])
+	SceneTransition.remove()])"""
 func _on_SETTINGS_pressed():
 	pass # Replace with function body.
