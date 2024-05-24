@@ -2,11 +2,10 @@ extends Control
 
 
 onready var submit = $SubmitButtonContainer
-onready var answers = $AnswersContainer
-onready var question = $QuestionsContainer/NinePatchRect/GridContainer
+onready var answercontainer = $AnswersContainer
+onready var answers = [$AnswersContainer/VBoxContainer/HFlowContainer/Answer1, $AnswersContainer/VBoxContainer/HFlowContainer/Answer2, $AnswersContainer/VBoxContainer/HFlowContainer2/Answer3, $AnswersContainer/VBoxContainer/HFlowContainer2/Answer4]
+onready var questions = [$QuestionsContainer/NinePatchRect/Base, $QuestionsContainer/NinePatchRect/Argument, $QuestionsContainer/NinePatchRect/Exponent]
 onready var showConfirmButton = false
-
-onready var positions:=[$QuestionsContainer/NinePatchRect/GridContainer/Label4,$QuestionsContainer/NinePatchRect/GridContainer/Label6, $QuestionsContainer/NinePatchRect/GridContainer/Label9]
 
 onready var score = 0
 
@@ -61,7 +60,7 @@ var problems = [
 		"choice4": 4,
 		"answer": 1
 	}]
-var n
+var idx = 0
 var selected
 
 signal submitted
@@ -70,39 +69,28 @@ func _ready():
 	problems.shuffle()
 	play()
 
+func reset()->void:
+	questions[0].text = str(problems[idx]["base"])
+	questions[1].text = "(" + str(problems[idx]["argument"]) + ")"
+	questions[2].text = str(problems[idx]["exponent"])
+	answers[0].text = str(problems[idx]["choice1"])
+	answers[1].text = str(problems[idx]["choice2"])
+	answers[2].text = str(problems[idx]["choice3"])
+	answers[3].text = str(problems[idx]["choice4"])
+
 func play():
 	for i in range(len(problems)):
-		n = problems[i]
-		question.get_child(3).text = str(n["base"])
-		question.get_child(5).text = str(n["argument"])
-		question.get_child(8).text = str(n["exponent"])
-		answers.get_child(0).get_child(0).get_child(0).text = str(n["choice1"])
-		answers.get_child(0).get_child(0).get_child(1).text = str(n["choice2"])
-		answers.get_child(0).get_child(1).get_child(0).text = str(n["choice3"])
-		answers.get_child(0).get_child(1).get_child(1).text = str(n["choice4"])
+		idx = i
+		reset()
 		yield(self, "submitted")
 func _process(delta):
 	if showConfirmButton:
 		submit.anchor_bottom = 0.875
-		answers.anchor_bottom = 0.875
+		answercontainer.anchor_bottom = 0.875
 	else:
 		submit.anchor_top = 1
-		answers.anchor_top = 1
+		answercontainer.anchor_top = 1
 
-
-func _on_Answer1_pressed():
-	var newparent = $".".get_position_in_parent()
-	var button = answers.get_child(0).get_child(0).get_child(0)
-	move_child(button,newparent)
-	if str(n["base"]) == " ":
-		button.rect_global_position = Vector2(positions[0].rect_global_position.x-positions[0].rect_size.x/2,positions[0].rect_global_position.y+positions[0].rect_size.y)
-	elif str(n["argument"]) == " ":
-		button.rect_global_position = positions[1]
-	elif str(n["exponent"]) == " ":
-		button.rect_global_position = positions[2]
-	
-	showConfirmButton = true
-	selected = "choice1"
 func _on_Answer2_pressed():
 	showConfirmButton = true
 	selected = "choice2"
@@ -114,7 +102,24 @@ func _on_Answer4_pressed():
 	selected = "choice4"
 func _on_SubmitButton_pressed():
 	emit_signal("submitted")
-	if n["answer"]==n[selected]:
+	if problems[idx]["answer"]==problems[idx][selected]:
 		score += 1
 	else:
 		score -=1
+
+
+func _on_Answer1_toggled(button_pressed) -> void:
+	var text = answers[0].text
+	if button_pressed:
+		if str(problems[idx]["base"]) == " ":
+			questions[0].text=text
+		elif str(problems[idx]["argument"]) == " ":
+			questions[0].text=text
+		elif str(problems[idx]["exponent"]) == " ":
+			questions[0].text=text
+
+	else:
+		reset()
+	
+	showConfirmButton = true
+	selected = "choice1"

@@ -50,108 +50,75 @@ margin_bottom = 270.0
 texture = ExtResource( 1 )
 region_rect = Rect2( 104, 84, 776, 219 )
 
-[node name="GridContainer" type="GridContainer" parent="QuestionsContainer/NinePatchRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-columns = 9
-
-[node name="Label" type="Label" parent="QuestionsContainer/NinePatchRect/GridContainer"]
-margin_right = 117.0
-margin_bottom = 270.0
+[node name="LOG" type="Button" parent="QuestionsContainer/NinePatchRect"]
+anchor_left = 0.082
+anchor_top = 0.5
+anchor_right = 0.082
+anchor_bottom = 0.5
+margin_left = -88.56
+margin_top = -135.0
+margin_right = 89.44
+margin_bottom = 135.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 5 )
-text = "L"
-align = 1
-valign = 1
+text = "LOG"
 
-[node name="Label2" type="Label" parent="QuestionsContainer/NinePatchRect/GridContainer"]
-margin_left = 121.0
-margin_right = 238.0
-margin_bottom = 270.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource( 5 )
-text = "O"
-align = 1
-valign = 1
-
-[node name="Label3" type="Label" parent="QuestionsContainer/NinePatchRect/GridContainer"]
-margin_left = 242.0
-margin_right = 359.0
-margin_bottom = 270.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource( 5 )
-text = "G"
-align = 1
-valign = 1
-
-[node name="Label4" type="Label" parent="QuestionsContainer/NinePatchRect/GridContainer"]
-margin_left = 363.0
-margin_right = 480.0
-margin_bottom = 270.0
+[node name="Base" type="Button" parent="QuestionsContainer/NinePatchRect"]
+anchor_left = 0.25
+anchor_top = 0.5
+anchor_right = 0.25
+anchor_bottom = 0.5
+margin_left = -90.0
+margin_top = -135.0
+margin_right = 90.0
+margin_bottom = 135.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 5 )
 text = "B"
-align = 1
-valign = 1
 
-[node name="Label5" type="Label" parent="QuestionsContainer/NinePatchRect/GridContainer"]
-margin_left = 484.0
-margin_right = 600.0
-margin_bottom = 270.0
+[node name="Argument" type="Button" parent="QuestionsContainer/NinePatchRect"]
+anchor_left = 0.419
+anchor_top = 0.5
+anchor_right = 0.419
+anchor_bottom = 0.5
+margin_left = -88.52
+margin_top = -135.0
+margin_right = 88.48
+margin_bottom = 135.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 5 )
-text = "("
-align = 1
-valign = 1
+text = "(A)"
 
-[node name="Label6" type="Label" parent="QuestionsContainer/NinePatchRect/GridContainer"]
-margin_left = 604.0
-margin_right = 720.0
-margin_bottom = 270.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource( 5 )
-text = "A"
-align = 1
-valign = 1
-
-[node name="Label7" type="Label" parent="QuestionsContainer/NinePatchRect/GridContainer"]
-margin_left = 724.0
-margin_right = 840.0
-margin_bottom = 270.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource( 5 )
-text = ")"
-align = 1
-valign = 1
-
-[node name="Label8" type="Label" parent="QuestionsContainer/NinePatchRect/GridContainer"]
-margin_left = 844.0
-margin_right = 960.0
-margin_bottom = 270.0
+[node name="Equals" type="Button" parent="QuestionsContainer/NinePatchRect"]
+anchor_left = 0.587
+anchor_top = 0.5
+anchor_right = 0.587
+anchor_bottom = 0.5
+margin_left = -88.96
+margin_top = -135.0
+margin_right = 88.04
+margin_bottom = 135.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 5 )
 text = "="
-align = 1
-valign = 1
 
-[node name="Label9" type="Label" parent="QuestionsContainer/NinePatchRect/GridContainer"]
-margin_left = 964.0
-margin_right = 1080.0
-margin_bottom = 270.0
+[node name="Exponent" type="Button" parent="QuestionsContainer/NinePatchRect"]
+anchor_left = 0.754
+anchor_top = 0.5
+anchor_right = 0.754
+anchor_bottom = 0.5
+margin_left = -88.32
+margin_top = -135.0
+margin_right = 88.68
+margin_bottom = 135.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 5 )
 text = "C"
-align = 1
-valign = 1
 
 [node name="AnswersContainer" type="MarginContainer" parent="."]
 anchor_top = 1.0
@@ -177,6 +144,8 @@ custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 4 )
 custom_styles/normal = SubResource( 3 )
+toggle_mode = true
+shortcut_in_tooltip = false
 text = "text"
 
 [node name="Answer2" type="Button" parent="AnswersContainer/VBoxContainer/HFlowContainer"]
@@ -235,7 +204,7 @@ margin_bottom = 129.0
 theme = ExtResource( 5 )
 text = "SUBMIT"
 
-[connection signal="pressed" from="AnswersContainer/VBoxContainer/HFlowContainer/Answer1" to="." method="_on_Answer1_pressed"]
+[connection signal="toggled" from="AnswersContainer/VBoxContainer/HFlowContainer/Answer1" to="." method="_on_Answer1_toggled"]
 [connection signal="pressed" from="AnswersContainer/VBoxContainer/HFlowContainer/Answer2" to="." method="_on_Answer2_pressed"]
 [connection signal="pressed" from="AnswersContainer/VBoxContainer/HFlowContainer2/Answer3" to="." method="_on_Answer3_pressed"]
 [connection signal="pressed" from="AnswersContainer/VBoxContainer/HFlowContainer2/Answer4" to="." method="_on_Answer4_pressed"]
