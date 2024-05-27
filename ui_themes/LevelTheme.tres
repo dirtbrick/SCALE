@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=5 format=2]
+
+[ext_resource path="res://addons/animated_text/examples/LuckiestGuy-Regular.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=4]
+size = 84
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.164706, 0.313726, 0.45098, 1 )
+border_width_bottom = 5
+border_color = Color( 0.290196, 0.380392, 0.470588, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[resource]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/fonts/font = SubResource( 4 )
+Button/styles/focus = SubResource( 1 )
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 3 )
+Label/fonts/font = SubResource( 4 )

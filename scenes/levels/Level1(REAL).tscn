@@ -1,5 +1,84 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
 
-[node name="Control" type="Control"]
+[ext_resource path="res://graphics/WaterBackground.png" type="Texture" id=1]
+[ext_resource path="res://ui_themes/LevelTheme.tres" type="Theme" id=2]
+[ext_resource path="res://scripts/levels/Level1(REAL).gd" type="Script" id=4]
+
+[node name="Level1" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 1414, 2000 )
+patch_margin_left = 389
+patch_margin_top = 696
+patch_margin_right = 361
+patch_margin_bottom = 350
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 0.23
+anchor_right = 1.0
+anchor_bottom = 0.23
+margin_top = -135.4
+margin_bottom = 134.6
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.815
+anchor_right = 0.5
+anchor_bottom = 0.815
+margin_left = -540.0
+margin_top = -200.2
+margin_right = 540.0
+margin_bottom = 199.8
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+margin_left = 20.0
+margin_right = 1060.0
+margin_bottom = 380.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 2
+
+[node name="A" type="Button" parent="MarginContainer/GridContainer"]
+margin_right = 515.0
+margin_bottom = 185.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+text = "A"
+
+[node name="B" type="Button" parent="MarginContainer/GridContainer"]
+margin_left = 525.0
+margin_right = 1040.0
+margin_bottom = 185.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+text = "B"
+
+[node name="C" type="Button" parent="MarginContainer/GridContainer"]
+margin_top = 195.0
+margin_right = 515.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+text = "C"
+
+[node name="D" type="Button" parent="MarginContainer/GridContainer"]
+margin_left = 525.0
+margin_top = 195.0
+margin_right = 1040.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+text = "D"
