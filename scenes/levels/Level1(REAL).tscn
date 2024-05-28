@@ -1,8 +1,33 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://graphics/WaterBackground.png" type="Texture" id=1]
 [ext_resource path="res://ui_themes/LevelTheme.tres" type="Theme" id=2]
 [ext_resource path="res://scripts/levels/Level1(REAL).gd" type="Script" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Label
+tool
+
+export (float,0,60) var countdown = 0.0
+var prev_countdown = 0.0
+onready var bar = $TimerBar
+onready var timer = $Timer
+
+func _ready():
+	timer.wait_time = countdown
+	text = countdown
+
+func _countdown_updated():
+	text = str(countdown)
+	bar.rect_scale.x = countdown / 60
+	update()
+func _process(delta):
+	if prev_countdown != countdown:
+		prev_countdown = countdown
+		_countdown_updated()
+		
+	
+"
 
 [node name="Level1" type="Control"]
 anchor_right = 1.0
@@ -19,12 +44,67 @@ patch_margin_top = 696
 patch_margin_right = 361
 patch_margin_bottom = 350
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_top = 0.23
+[node name="HUDs" type="Control" parent="."]
 anchor_right = 1.0
+anchor_bottom = 0.102
+margin_bottom = -0.160004
+
+[node name="ScoreLabel" type="Label" parent="HUDs"]
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_right = 380.0
+theme = ExtResource( 2 )
+text = "SCORE: 0"
+valign = 1
+autowrap = true
+
+[node name="TimerLabel" type="Label" parent="HUDs"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.045
+margin_left = -365.0
+margin_bottom = 0.0500031
+theme = ExtResource( 2 )
+text = "10"
+align = 1
+valign = 1
+script = SubResource( 1 )
+countdown = 10.0
+
+[node name="TimerBar" type="ColorRect" parent="HUDs/TimerLabel"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.72549, 0.305882, 0.305882, 1 )
+
+[node name="Timer" type="Timer" parent="HUDs/TimerLabel"]
+wait_time = 0.385
+one_shot = true
+
+[node name="VBoxContainer" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.23
+anchor_right = 0.5
 anchor_bottom = 0.23
+margin_left = -540.0
 margin_top = -135.4
+margin_right = 540.0
 margin_bottom = 134.6
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.160784, 0.384314, 0.486275, 1 )
+
+[node name="Question" type="Label" parent="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+text = "LOG_A (B) = C"
+align = 1
+valign = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_left = 0.5
@@ -40,44 +120,43 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
-margin_left = 20.0
-margin_right = 1060.0
-margin_bottom = 380.0
+margin_right = 1080.0
+margin_bottom = 400.0
 custom_constants/vseparation = 10
 custom_constants/hseparation = 10
 columns = 2
 
 [node name="A" type="Button" parent="MarginContainer/GridContainer"]
-margin_right = 515.0
-margin_bottom = 185.0
+margin_right = 535.0
+margin_bottom = 195.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
 text = "A"
 
 [node name="B" type="Button" parent="MarginContainer/GridContainer"]
-margin_left = 525.0
-margin_right = 1040.0
-margin_bottom = 185.0
+margin_left = 545.0
+margin_right = 1080.0
+margin_bottom = 195.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
 text = "B"
 
 [node name="C" type="Button" parent="MarginContainer/GridContainer"]
-margin_top = 195.0
-margin_right = 515.0
-margin_bottom = 380.0
+margin_top = 205.0
+margin_right = 535.0
+margin_bottom = 400.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
 text = "C"
 
 [node name="D" type="Button" parent="MarginContainer/GridContainer"]
-margin_left = 525.0
-margin_top = 195.0
-margin_right = 1040.0
-margin_bottom = 380.0
+margin_left = 545.0
+margin_top = 205.0
+margin_right = 1080.0
+margin_bottom = 400.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
