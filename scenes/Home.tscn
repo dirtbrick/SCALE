@@ -10,7 +10,8 @@
 
 [sub_resource type="DynamicFont" id=23]
 size = 61
-outline_color = Color( 0, 0, 0, 1 )
+outline_size = 3
+outline_color = Color( 0.298039, 0.12549, 0.631373, 0.741176 )
 font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxTexture" id=17]

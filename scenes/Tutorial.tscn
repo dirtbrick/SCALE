@@ -116,7 +116,7 @@ margin_right = -0.240112
 margin_bottom = 0.359985
 
 [node name="Panel" type="Panel" parent="VBoxContainer"]
-margin_right = 980.0
+margin_right = 979.0
 margin_bottom = 671.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -125,46 +125,52 @@ theme = ExtResource( 5 )
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel/MarginContainer"]
-margin_right = 940.0
-margin_bottom = 631.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 986.0
+margin_bottom = 651.0
 
 [node name="TextureProgress" type="TextureProgress" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer"]
-margin_right = 940.0
+margin_right = 966.0
 margin_bottom = 100.0
+size_flags_horizontal = 4
 value = 20.0
 rounded = true
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 6 )
-nine_patch_stretch = true
-stretch_margin_top = 50
-stretch_margin_bottom = 50
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer"]
 margin_top = 104.0
-margin_right = 940.0
+margin_right = 966.0
 margin_bottom = 631.0
 size_flags_vertical = 3
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer"]
-margin_right = 940.0
-margin_bottom = 527.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 946.0
+margin_bottom = 507.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-margin_right = 468.0
-margin_bottom = 527.0
+margin_right = 461.0
+margin_bottom = 487.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_right = 468.0
-margin_bottom = 527.0
+margin_right = 461.0
+margin_bottom = 487.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 5 )
@@ -176,22 +182,24 @@ Exponent (C)"
 autowrap = true
 
 [node name="Panel" type="Panel" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 472.0
-margin_right = 940.0
-margin_bottom = 527.0
+margin_left = 465.0
+margin_right = 926.0
+margin_bottom = 487.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -20.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
 
 [node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Panel/MarginContainer"]
-margin_right = 428.0
-margin_bottom = 487.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 451.0
+margin_bottom = 477.0
 size_flags_horizontal = 11
 size_flags_vertical = 1
 theme = ExtResource( 5 )
@@ -206,12 +214,12 @@ autowrap = true
 
 [node name="UsefulContainer" type="MarginContainer" parent="VBoxContainer"]
 margin_top = 675.0
-margin_right = 980.0
+margin_right = 979.0
 margin_bottom = 730.0
 
 [node name="NextButton" type="Button" parent="VBoxContainer/UsefulContainer"]
-margin_left = 857.0
-margin_right = 980.0
+margin_left = 856.0
+margin_right = 979.0
 margin_bottom = 55.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
