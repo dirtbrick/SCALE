@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=2]
+[gd_resource type="Theme" load_steps=12 format=2]
 
 [ext_resource path="res://addons/animated_text/examples/LuckiestGuy-Regular.ttf" type="DynamicFontData" id=1]
 
@@ -18,6 +18,23 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="DynamicFont" id=5]
+size = 24
+extra_spacing_char = -1
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
 [resource]
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
 Button/fonts/font = SubResource( 4 )
@@ -25,4 +42,11 @@ Button/styles/focus = SubResource( 1 )
 Button/styles/hover = SubResource( 3 )
 Button/styles/normal = SubResource( 3 )
 Button/styles/pressed = SubResource( 3 )
+CheckButton/fonts/font = SubResource( 5 )
+CheckButton/styles/disabled = SubResource( 6 )
+CheckButton/styles/focus = SubResource( 7 )
+CheckButton/styles/hover = SubResource( 8 )
+CheckButton/styles/hover_pressed = SubResource( 9 )
+CheckButton/styles/normal = SubResource( 10 )
+CheckButton/styles/pressed = SubResource( 11 )
 Label/fonts/font = SubResource( 4 )

@@ -23,15 +23,6 @@ func move(destination:int):
 		moveup = false
 	stopat = destination
 
-func _on_Back_pressed():
-	SceneTransition.change_scene("res://scenes/Home.tscn")
-func _on_level1_pressed():
-	yield(self, "finished_moving")
-	SceneTransition.change_scene("res://scenes/levels/Prologue.tscn")
-func _on_level2_pressed():
-	move(2)
-func _on_level3_pressed():
-	move(3)
 
 func _process(delta):	
 	if moveup == true:
@@ -57,10 +48,27 @@ func _process(delta):
 		movedown = false
 		emit_signal("finished_moving")
 
+# [Buttons]=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+func _on_Back_pressed():
+	SceneTransition.nge_scene("res://scenes/Home.tscn")
+func _on_level1_pressed():
+	yield(self, "finished_moving")
+	SceneTransition.change_scene("res://scenes/levels/Level1(REAL).tscn")
+func _on_level2_pressed():
+	move(2)
+func _on_level3_pressed():
+	move(3)
 
 func _on_Back_button_down():ButtonAnimations.animate(back,ButtonAnimations.RBOUNCE)
 func _on_Back_button_up(): ButtonAnimations.animate(back,ButtonAnimations.BOUNCE)
 
 func _on_level1_button_down(): ButtonAnimations.animate(level1,ButtonAnimations.RSQUISH)
 func _on_level1_button_up(): ButtonAnimations.animate(level1,ButtonAnimations.SQUISH)
+
+# [Conditional]=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+func show_star(lvnum: int):
+	var levels = [$Levels/AspectRatioContainer/GridContainer/level1/ReferenceRect2]
+	var star = levels[lvnum + 1]
+	star.visible = true
+	ButtonAnimations.animate(star,ButtonAnimations.POPOUT)

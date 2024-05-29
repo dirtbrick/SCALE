@@ -1,0 +1,278 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://graphics/ui_set_3.png" type="Texture" id=1]
+[ext_resource path="res://graphics/WaterTransition.png" type="Texture" id=2]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://addons/animated_text/examples/LuckiestGuy-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://ui_themes/LevelTheme.tres" type="Theme" id=5]
+
+[sub_resource type="GDScript" id=11]
+script/source = "extends Control
+
+onready var star = [$Star, $Star2, $Star3]
+onready var continuebutton = $Continue/ContinueButton
+var numstars := 0
+
+func _ready():
+	self.call_deferred(\"_started\")
+
+func _started():
+	star = star.slice(0,numstars-1)
+	ButtonAnimations.animate(star,ButtonAnimations.POPOUT)
+	
+func _on_ContinueButton_pressed():
+	get_tree().paused = false
+	queue_free()
+"
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 1, 392, 391 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 1 )
+region_rect = Rect2( 406, 5, 385, 384 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 192
+outline_size = 10
+outline_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="Animation" id=2]
+resource_name = "RESET"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Wave"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 0.329877, 0.329877 ),
+"update": 0,
+"values": [ 0.0, -1.7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 0.329877, 0.329877 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource( 11 )
+
+[node name="Sprite" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1080.0
+margin_bottom = 2160.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Blur" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.796078 )
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.422
+margin_bottom = 0.23999
+
+[node name="CompleteLabel" type="Label" parent="AspectRatioContainer"]
+margin_left = 82.0
+margin_top = 163.0
+margin_right = 998.0
+margin_bottom = 291.0
+custom_fonts/font = SubResource( 1 )
+text = "LEVEL COMPLETE"
+align = 1
+valign = 1
+
+[node name="StarSlot" type="Button" parent="."]
+self_modulate = Color( 0.317647, 0.317647, 0.317647, 0.933333 )
+anchor_left = 0.5
+anchor_top = 0.547
+anchor_right = 0.5
+anchor_bottom = 0.547
+margin_left = -112.5
+margin_top = -112.26
+margin_right = 112.5
+margin_bottom = 112.74
+rect_pivot_offset = Vector2( 243.5, 21.5 )
+custom_styles/disabled = SubResource( 12 )
+disabled = true
+
+[node name="Star" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.547
+anchor_right = 0.5
+anchor_bottom = 0.547
+margin_left = -112.5
+margin_top = -112.26
+margin_right = 112.5
+margin_bottom = 112.74
+rect_pivot_offset = Vector2( 112, 112 )
+custom_styles/disabled = SubResource( 10 )
+disabled = true
+
+[node name="StarSlot2" type="Button" parent="."]
+self_modulate = Color( 0.317647, 0.317647, 0.317647, 0.933333 )
+anchor_left = 0.5
+anchor_top = 0.547
+anchor_right = 0.5
+anchor_bottom = 0.547
+margin_left = -376.5
+margin_top = -184.26
+margin_right = -151.5
+margin_bottom = 40.74
+rect_pivot_offset = Vector2( 243.5, 21.5 )
+custom_styles/disabled = SubResource( 12 )
+disabled = true
+
+[node name="Star2" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.547
+anchor_right = 0.5
+anchor_bottom = 0.547
+margin_left = -375.0
+margin_top = -184.26
+margin_right = -150.0
+margin_bottom = 40.74
+rect_pivot_offset = Vector2( 112, 112 )
+custom_styles/disabled = SubResource( 10 )
+disabled = true
+
+[node name="StarSlot3" type="Button" parent="."]
+self_modulate = Color( 0.317647, 0.317647, 0.317647, 0.933333 )
+anchor_left = 0.5
+anchor_top = 0.547
+anchor_right = 0.5
+anchor_bottom = 0.547
+margin_left = 159.5
+margin_top = -184.26
+margin_right = 384.5
+margin_bottom = 40.74
+rect_pivot_offset = Vector2( 243.5, 21.5 )
+custom_styles/disabled = SubResource( 12 )
+disabled = true
+
+[node name="Star3" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.547
+anchor_right = 0.5
+anchor_bottom = 0.547
+margin_left = 161.0
+margin_top = -183.76
+margin_right = 386.0
+margin_bottom = 41.24
+rect_pivot_offset = Vector2( 112, 112 )
+custom_styles/disabled = SubResource( 10 )
+disabled = true
+
+[node name="Continue" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -629.0
+margin_top = -263.0
+margin_right = -4.0
+
+[node name="ColorRect" type="ColorRect" parent="Continue"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.141176, 0.141176, 0.141176, 0.521569 )
+
+[node name="ContinueLabel" type="Label" parent="Continue"]
+anchor_left = 0.603
+anchor_top = 0.5
+anchor_right = 0.603
+anchor_bottom = 0.5
+margin_left = -376.875
+margin_top = -131.5
+margin_right = 0.124969
+margin_bottom = 131.5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+text = "Continue"
+align = 1
+valign = 1
+
+[node name="ContinueButton" type="Button" parent="Continue"]
+anchor_left = 0.654
+anchor_top = 0.5
+anchor_right = 0.654
+anchor_bottom = 0.5
+margin_left = -27.75
+margin_top = -131.5
+margin_right = 162.25
+margin_bottom = 131.5
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 131, 160 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "▲"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/Wave = SubResource( 3 )
+
+[connection signal="pressed" from="Continue/ContinueButton" to="." method="_on_ContinueButton_pressed"]

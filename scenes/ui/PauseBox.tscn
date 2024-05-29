@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://addons/animated_text/examples/LuckiestGuy-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ui_themes/LevelTheme.tres" type="Theme" id=3]
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends Control
+
+onready var confirm_button = $ShowConfirmButton
+
+func _ready():
+	confirm_button.pressed = Global.show_confirm
+
+
+func _on_Play_pressed():
+	get_tree().paused = false
+	queue_free()
+
+func _on_ShowConfirmButton_toggled(button_pressed):
+	Global.show_confirm = button_pressed
+	
+"
+
+[sub_resource type="DynamicFont" id=1]
+size = 192
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 192
+outline_size = 10
+outline_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[node name="PauseBox" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource( 7 )
+
+[node name="Blur" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.705882 )
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.422
+margin_bottom = 0.23999
+
+[node name="PausedLabel" type="Label" parent="AspectRatioContainer"]
+margin_left = 210.0
+margin_top = 132.0
+margin_right = 870.0
+margin_bottom = 324.0
+custom_fonts/font = SubResource( 1 )
+text = "PAUSED"
+align = 1
+valign = 1
+
+[node name="Play" type="Button" parent="."]
+anchor_left = 0.492
+anchor_top = 0.714
+anchor_right = 0.492
+anchor_bottom = 0.714
+margin_left = -121.36
+margin_top = -131.12
+margin_right = 168.64
+margin_bottom = 134.88
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( 145, 133 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "▲"
+
+[node name="ShowConfirmButton" type="CheckButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.456
+anchor_right = 0.503
+anchor_bottom = 0.456
+margin_left = -306.0
+margin_top = -55.48
+margin_right = -0.240051
+margin_bottom = 0.519958
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 3 )
+text = "SHOW CONFIRM BUTTON"
+align = 1
+
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="toggled" from="ShowConfirmButton" to="." method="_on_ShowConfirmButton_toggled"]

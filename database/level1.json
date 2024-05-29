@@ -1,0 +1,50 @@
+{
+	"base": "B",
+	"argument": " ",
+	"exponent": "C",
+	"choice1": "A",
+	"choice2": "B",
+	"choice3": "C",
+	"choice4": "D",
+	"answer": "A"
+},
+{
+	"base": " ",
+	"argument": "A",
+	"exponent": "C",
+	"choice1": "A",
+	"choice2": "B",
+	"choice3": "C",
+	"choice4": "D",
+	"answer": "B"
+},
+{
+	"base": "B",
+	"argument": "A",
+	"exponent": " ",
+	"choice1": "A",
+	"choice2": "B",
+	"choice3": "C",
+	"choice4": "D",
+	"answer": "C"
+},
+{
+	"base": 2,
+	"argument": 2,
+	"exponent": " ",
+	"choice1": 1,
+	"choice2": 2,
+	"choice3": 3,
+	"choice4": 4,
+	"answer": 1
+},
+{
+	"base": 1,
+	"argument": 1,
+	"exponent": " ",
+	"choice1": 1,
+	"choice2": 2,
+	"choice3": 3,
+	"choice4": 4,
+	"answer": 1
+}

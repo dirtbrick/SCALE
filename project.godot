@@ -118,11 +118,14 @@ _global_script_class_icons={
 
 config/name="Ludumathica"
 run/main_scene="res://scenes/Home.tscn"
-boot_splash/image="res://icon.png"
-config/icon="res://icon.png"
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://graphics/logo500x500.png"
 
 [autoload]
 
+Global="*res://scripts/singleton/Global.gd"
 SceneTransition="*res://scenes/ui/SceneTransition.tscn"
 DialogManager="*res://scripts/singleton/DialogManager.gd"
 Math="*res://scripts/singleton/Math.gd"

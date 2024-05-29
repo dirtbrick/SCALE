@@ -1,26 +1,48 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://graphics/WaterBackground.png" type="Texture" id=1]
 [ext_resource path="res://ui_themes/LevelTheme.tres" type="Theme" id=2]
+[ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://scripts/levels/Level1(REAL).gd" type="Script" id=4]
+[ext_resource path="res://addons/animated_text/examples/LuckiestGuy-Regular.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=2]
+size = 51
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.0117647, 0.854902, 0.419608, 1 )
+border_width_left = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.164706, 0.313726, 0.45098, 1 )
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Label
 tool
 
-export (float,0,60) var countdown = 0.0
+export (float,0.0,60.0,1.0) var countdown = 0.0
 var prev_countdown = 0.0
 onready var bar = $TimerBar
 onready var timer = $Timer
 
 func _ready():
 	timer.wait_time = countdown
-	text = countdown
+	text = str(countdown)
 
 func _countdown_updated():
 	text = str(countdown)
 	bar.rect_scale.x = countdown / 60
 	update()
+
 func _process(delta):
 	if prev_countdown != countdown:
 		prev_countdown = countdown
@@ -28,6 +50,10 @@ func _process(delta):
 		
 	
 "
+
+[sub_resource type="DynamicFont" id=8]
+size = 64
+font_data = ExtResource( 5 )
 
 [node name="Level1" type="Control"]
 anchor_right = 1.0
@@ -52,11 +78,25 @@ margin_bottom = -0.160004
 [node name="ScoreLabel" type="Label" parent="HUDs"]
 anchor_bottom = 1.0
 margin_left = 15.0
-margin_right = 380.0
+margin_right = 489.0
 theme = ExtResource( 2 )
 text = "SCORE: 0"
 valign = 1
 autowrap = true
+
+[node name="PauseButton" type="Button" parent="HUDs"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.036
+margin_left = -53.0
+margin_right = 31.0
+margin_bottom = 1.04001
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "▐▐"
 
 [node name="TimerLabel" type="Label" parent="HUDs"]
 anchor_left = 1.0
@@ -65,11 +105,12 @@ anchor_bottom = 1.045
 margin_left = -365.0
 margin_bottom = 0.0500031
 theme = ExtResource( 2 )
-text = "10"
+custom_styles/normal = SubResource( 7 )
+text = "60"
 align = 1
 valign = 1
 script = SubResource( 1 )
-countdown = 10.0
+countdown = 60.0
 
 [node name="TimerBar" type="ColorRect" parent="HUDs/TimerLabel"]
 show_behind_parent = true
@@ -78,7 +119,7 @@ anchor_bottom = 1.0
 color = Color( 0.72549, 0.305882, 0.305882, 1 )
 
 [node name="Timer" type="Timer" parent="HUDs/TimerLabel"]
-wait_time = 0.385
+wait_time = 60.0
 one_shot = true
 
 [node name="VBoxContainer" type="Control" parent="."]
@@ -105,6 +146,20 @@ theme = ExtResource( 2 )
 text = "LOG_A (B) = C"
 align = 1
 valign = 1
+
+[node name="ConfirmButton" type="Button" parent="."]
+visible = false
+anchor_left = 0.497
+anchor_top = 0.494
+anchor_right = 0.497
+anchor_bottom = 0.494
+margin_left = -266.76
+margin_top = -93.52
+margin_right = 273.24
+margin_bottom = 106.48
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 8 )
+text = "SUBMIT"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_left = 0.5
@@ -161,3 +216,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
 text = "D"
+
+[connection signal="pressed" from="HUDs/PauseButton" to="." method="_on_PauseButton_pressed"]
+[connection signal="pressed" from="ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/A" to="." method="_on_A_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/B" to="." method="_on_B_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/C" to="." method="_on_C_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/D" to="." method="_on_D_pressed"]
