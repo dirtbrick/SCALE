@@ -82,10 +82,13 @@ func _process(delta):
 func _on_Back_pressed():
 	SceneTransition.change_scene("res://scenes/Home.tscn")
 func _on_level1_pressed():
+	move(1)
 	yield(self, "finished_moving")
 	SceneTransition.change_scene("res://scenes/levels/Level1(REAL).tscn")
 func _on_level2_pressed():
 	move(2)
+	yield(self, "finished_moving")
+	SceneTransition.change_scene("res://scenes/levels/Level1(REAL).tscn")
 func _on_level3_pressed():
 	move(3)
 

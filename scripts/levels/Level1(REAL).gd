@@ -4,33 +4,33 @@ extends Control
 onready var problems = [
 	{
 		"base": "B",
-		"argument": " ",
+		"argument": "?",
 		"exponent": "C",
-		"choice1": "A",
-		"choice2": "B",
-		"choice3": "C",
-		"choice4": "D",
-		"answer": "A"
+		"choice1": "Argument",
+		"choice2": "Base",
+		"choice3": "Exponent",
+		"choice4": "Skip",
+		"answer": "Argument"
 	},
 	{
-		"base": " ",
+		"base": "?",
 		"argument": "A",
 		"exponent": "C",
-		"choice1": "A",
-		"choice2": "B",
-		"choice3": "C",
-		"choice4": "D",
-		"answer": "B"
+		"choice1": "Argument",
+		"choice2": "Base",
+		"choice3": "Exponent",
+		"choice4": "Skip",
+		"answer": "Base"
 	},
 	{
 		"base": "B",
 		"argument": "A",
-		"exponent": " ",
-		"choice1": "A",
-		"choice2": "B",
-		"choice3": "C",
-		"choice4": "D",
-		"answer": "C"
+		"exponent": "?",
+		"choice1": "Argument",
+		"choice2": "Base",
+		"choice3": "Exponent",
+		"choice4": "Skip",
+		"answer": "Exponent"
 	},
 	{
 		"base": 2,

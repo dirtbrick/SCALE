@@ -1,22 +1,29 @@
 extends Control
 
+onready var progressbar = $VBoxContainer/Panel/MarginContainer/VBoxContainer/TextureProgress
+onready var prevbutton = $VBoxContainer/UsefulContainer/NextButton
+onready var nextbutton = $VBoxContainer/UsefulContainer/HBoxContainer/PrevButton
+onready var page1 = $VBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer
+export (int, 100) var tabs := 1
+
+var page = 1
+var maxpage = 5
+
 func _ready():
-	#DialogManager.start_dialog(get_global_transform().origin,lines)
-	pass
-const lines: Array = [#array of string
-	"Hello! Remember exponentiation?",
-	"[2^3=?] This equation tells yoou to multiply 2 by itself 3 times!",
-	"[2^3=2*2*2=8] Got it?",
-	"In seaweed terms, exponentiation simply tells you to eat seaweed a number of times to feel full!",
-	"Now then what is logarithm?",
-	"[log_2(8)=?] This equation asks you, how many 2 should I multiply by itself to get 8?",
-	"Well.. 2*2=4, but it is not 8. So multiply again.. 4*2=8. We got it. How may twos did we use?",
-	"That's right 3! so [log_2(8)=3]",
-	"In other words, logarithms asks you, if I get full with 8 seaweeds, how many 2 bunched up seaweeds should you give me?"
-]
+	progressbar.value = int((float(page)/float(maxpage)) * 100)
 
 
+func flip_page(pagenum: int):
+	#print("Before: ",page)
+	progressbar.value = int((float(pagenum)/float(maxpage)) * 100)
+	page = pagenum
+	if page == 1:
+		page1.visible = true
+	else:
+		page1.visible = false
+	#print("After: ", page)
 
-
-func _on_NinePatchRect_pressed():
-	SceneTransition.change_scene("res://scenes/Home.tscn")
+# [Buttons] =-=-==-=-=-==-=-=-==-=--=-=-=-=-=-=-
+func _on_NinePatchRect_pressed(): SceneTransition.change_scene("res://scenes/Home.tscn")
+func _on_PrevButton_pressed(): flip_page(page - 1 if page > 1 else 1)
+func _on_NextButton_pressed(): flip_page(page + 1 if page < maxpage else maxpage)

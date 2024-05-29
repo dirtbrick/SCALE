@@ -13,10 +13,10 @@ func _on_Camera2D_swipe_down():
 
 #need fix, rn this works for either left or right
 func _on_Camera2D_swipe_left():
-	if panel != "HomePanel":
-		ANIMATION.play("HomePanelRight")
-		panel = "HomePanel"
-		
+	#if panel != "HomePanel":
+	#	ANIMATION.play("HomePanelRight")
+	#	panel = "HomePanel"
+	pass
 
 
 func _on_Camera2D_swipe_right():
