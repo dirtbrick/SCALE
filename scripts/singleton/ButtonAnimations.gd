@@ -6,10 +6,10 @@ enum{BOUNCE, RBOUNCE, SQUISH, RSQUISH, POPOUT}
 
 var pixel_diff
 var default
-onready var tween:=create_tween()
+var tween
 
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func match_anim(anim,node):
 	match anim:
@@ -47,9 +47,9 @@ func match_anim(anim,node):
 			tween.parallel().tween_property(node, "rect_rotation", 0.0, 0.5)
 
 func animate(nodes, animation) -> void:
+	tween =create_tween()
 	if typeof(nodes) == TYPE_ARRAY:
 		for node in nodes:
-			print(node)
 			match_anim(animation,node)
 	else:
 		match_anim(animation,nodes)

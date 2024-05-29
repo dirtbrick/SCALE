@@ -66,7 +66,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 0.329877, 0.329877 ),
 "update": 0,
-"values": [ 0.0, -1.7 ]
+"values": [ 0.0, -2.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:anchor_bottom")

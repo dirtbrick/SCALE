@@ -62,10 +62,11 @@ signal next_question
 
 # dynamic
 onready var idx = 0 # global loop iterator ;-; for now
-var score := 0
+var score
 var answer
 
 func _ready():
+	score = 0
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	if Global.show_confirm: confirm.visible = true
 	else: confirm.visible = false
@@ -114,10 +115,13 @@ func submit_answer(choice):
 
 func show_results():
 	var new = lvlcomplete.instance()
-	get_tree().paused = true
 	add_child(new)
-	new.numstars = 2
+	yield(new,"tree_exited")
 	SceneTransition.change_scene("res://scenes/LevelSelect.tscn")
+	if score > 0:
+		Global.level_stars[0] = int(floor(float(score/10)/float(len(problems))*3))
+	if Global.unlocked_levels < 2:
+		Global.unlocked_levels = 2
 
 # [Buttons] =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -125,7 +129,6 @@ func _on_PauseButton_pressed():
 	var new = pausebox.instance()
 	get_tree().paused = true
 	add_child(new)
-
 func _on_A_pressed(): submit_answer("choice1")
 func _on_B_pressed(): submit_answer("choice2")
 func _on_C_pressed(): submit_answer("choice3")

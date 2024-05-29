@@ -9,19 +9,27 @@
 [sub_resource type="GDScript" id=11]
 script/source = "extends Control
 
-onready var star = [$Star, $Star2, $Star3]
+onready var stars = [$Star1, $Star2, $Star3]
 onready var continuebutton = $Continue/ContinueButton
-var numstars := 0
+onready var label = $AspectRatioContainer/CompleteLabel
+var star
+var numstars
 
 func _ready():
-	self.call_deferred(\"_started\")
+	var a = float(get_parent().score)
+	var b = float(len(get_parent().problems))
+	numstars = int(floor(a/10/b*3))
+	star = stars.slice(0,numstars-1)
+	print(star)
+	_started()
 
 func _started():
-	star = star.slice(0,numstars-1)
+	if numstars == 0:
+		label.text = \"LEVEL FAILED\"
+		return
 	ButtonAnimations.animate(star,ButtonAnimations.POPOUT)
 	
 func _on_ContinueButton_pressed():
-	get_tree().paused = false
 	queue_free()
 "
 
@@ -156,7 +164,7 @@ rect_pivot_offset = Vector2( 243.5, 21.5 )
 custom_styles/disabled = SubResource( 12 )
 disabled = true
 
-[node name="Star" type="Button" parent="."]
+[node name="Star2" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.547
 anchor_right = 0.5
@@ -165,6 +173,7 @@ margin_left = -112.5
 margin_top = -112.26
 margin_right = 112.5
 margin_bottom = 112.74
+rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 112, 112 )
 custom_styles/disabled = SubResource( 10 )
 disabled = true
@@ -183,7 +192,7 @@ rect_pivot_offset = Vector2( 243.5, 21.5 )
 custom_styles/disabled = SubResource( 12 )
 disabled = true
 
-[node name="Star2" type="Button" parent="."]
+[node name="Star1" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.547
 anchor_right = 0.5
@@ -192,6 +201,7 @@ margin_left = -375.0
 margin_top = -184.26
 margin_right = -150.0
 margin_bottom = 40.74
+rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 112, 112 )
 custom_styles/disabled = SubResource( 10 )
 disabled = true
@@ -219,6 +229,7 @@ margin_left = 161.0
 margin_top = -183.76
 margin_right = 386.0
 margin_bottom = 41.24
+rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 112, 112 )
 custom_styles/disabled = SubResource( 10 )
 disabled = true
