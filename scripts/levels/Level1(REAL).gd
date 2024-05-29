@@ -1,3 +1,4 @@
+# The REAL Level 1,,
 extends Control
 
 # change to JSON
@@ -120,6 +121,7 @@ func show_results():
 	SceneTransition.change_scene("res://scenes/LevelSelect.tscn")
 	if score > 0:
 		Global.level_stars[0] = int(floor(float(score/10)/float(len(problems))*3))
+		Global.total_score += score
 	if Global.unlocked_levels < 2:
 		Global.unlocked_levels = 2
 

@@ -292,10 +292,12 @@ margin_right = 262.0
 margin_bottom = 235.0
 grow_horizontal = 2
 grow_vertical = 0
+rect_pivot_offset = Vector2( 130.776, 131 )
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 21 )
 custom_styles/focus = SubResource( 22 )
 custom_styles/normal = SubResource( 6 )
+text = "EXIT"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 540, 540 )
@@ -311,6 +313,12 @@ anchor_right = 3.269
 anchor_bottom = 1.0
 margin_left = 11.0
 margin_right = 0.47998
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 1091.0
+margin_right = 2311.0
 
 [connection signal="resized" from="." to="." method="_on_Home_resized"]
 [connection signal="pressed" from="Navigation/GridContainer/VBoxContainer/AspectRatioContainer/PLAY" to="." method="_on_Button_pressed"]

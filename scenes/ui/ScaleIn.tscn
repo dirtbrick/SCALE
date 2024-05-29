@@ -1,0 +1,140 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://graphics/ScopeMaskInverted.png" type="Texture" id=1]
+[ext_resource path="res://graphics/shader/ScopeBottomRight.tres" type="Shader" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/scale = 0.0
+shader_param/mask = ExtResource( 1 )
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends ColorRect
+
+func _ready():
+	pass
+func play(animation:=[\"m\"]):
+	for i in range(len(animation)):
+		if i == 0:
+			$AnimationPlayer.play(animation[i])
+		else:
+			$AnimationPlayer.queue(animation[i])
+	yield($AnimationPlayer, 'animation_finished')
+	SceneTransition.emit_signal(\"anim_finished\")
+"
+
+[sub_resource type="Animation" id=2]
+resource_name = "FADE"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "ScopeIN1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 2.07053, 2.14355, 2.07053 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.4 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "ScopeIN2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2.14355, 2.07053 ),
+"update": 0,
+"values": [ 1.0, 0.4 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "ScopeOUT1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 2.82843, 2.82843, 2.82843 ),
+"update": 0,
+"values": [ 0.4, 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "ScopeOUT2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:shader_param/scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2.82843, 2.82843 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[node name="Scope" type="ColorRect"]
+material = SubResource( 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -964.0
+margin_top = -964.0
+margin_right = 116.0
+margin_bottom = 116.0
+rect_scale = Vector2( 1.8, 1.8 )
+color = Color( 0, 0, 0, 1 )
+script = SubResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FADE = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+anims/ScopeIN1 = SubResource( 4 )
+anims/ScopeIN2 = SubResource( 7 )
+anims/ScopeOUT1 = SubResource( 5 )
+anims/ScopeOUT2 = SubResource( 8 )

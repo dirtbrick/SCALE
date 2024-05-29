@@ -1,6 +1,7 @@
 extends Control
 
 onready var panel = "Home"
+# Homescreen
 onready var ANIMATION = $AnimationPlayer
 onready var PANEL1 = $Panel
 onready var NAVIGATION = $Navigation

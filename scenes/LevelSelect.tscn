@@ -343,11 +343,13 @@ keep_pressed_outside = true
 text = "Back"
 
 [node name="Tree" type="Button" parent="Levels"]
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 766.0
+margin_left = -314.0
 margin_top = -320.0
-margin_right = 1131.0
+margin_right = 51.0
 margin_bottom = 73.0
 rect_pivot_offset = Vector2( 264, 320 )
 custom_colors/font_color_disabled = Color( 1, 0.952941, 0.952941, 1 )
@@ -373,3 +375,4 @@ text = "Tree"
 [connection signal="pressed" from="Levels/Back" to="." method="_on_Back_pressed"]
 [connection signal="button_down" from="Levels/Tree" to="." method="_on_Tree_button_down"]
 [connection signal="button_up" from="Levels/Tree" to="." method="_on_Tree_button_up"]
+[connection signal="pressed" from="Levels/Tree" to="." method="_on_Tree_pressed"]

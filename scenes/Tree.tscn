@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://graphics/ui_set_2.png" type="Texture" id=1]
+[ext_resource path="res://fonts/lazy_dog.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ui_themes/LevelTheme.tres" type="Theme" id=3]
+[ext_resource path="res://scripts/Tree.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 127
+outline_size = 8
+outline_color = Color( 0.0705882, 0.337255, 0.294118, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 1 )
+region_rect = Rect2( 254, 91, 380, 283 )
+margin_left = 119.0
+margin_right = 76.0
+margin_top = 217.0
+margin_bottom = 34.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+size = 127
+outline_size = 8
+outline_color = Color( 0.0705882, 0.337255, 0.294118, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 1 )
+region_rect = Rect2( 127, 102, 507, 504 )
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[node name="Node2D" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.980392, 0.85098, 0.603922, 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.659
+anchor_right = 0.5
+anchor_bottom = 0.659
+margin_left = -490.0
+margin_top = -348.72
+margin_right = 502.0
+margin_bottom = 0.279968
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0.411765, 0.372549, 1 )
+text = "The tree of knowledge.
+
+It grows the more score points you have!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Tree" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -205.0
+margin_top = -402.6
+margin_right = 180.0
+margin_bottom = 0.974854
+grow_vertical = 0
+rect_min_size = Vector2( 385.041, 403.575 )
+rect_pivot_offset = Vector2( 205, 327.6 )
+custom_colors/font_color_disabled = Color( 1, 0.952941, 0.952941, 1 )
+custom_colors/font_color = Color( 0.901961, 0.941176, 0.909804, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.952941, 0.952941, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+shortcut_in_tooltip = false
+keep_pressed_outside = true
+
+[node name="Back" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -35.0
+margin_top = -232.0
+margin_right = 282.0
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 0, 146 )
+custom_colors/font_color_disabled = Color( 1, 0.952941, 0.952941, 1 )
+custom_colors/font_color = Color( 0.901961, 0.941176, 0.909804, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.952941, 0.952941, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
+shortcut_in_tooltip = false
+keep_pressed_outside = true
+text = "Back"
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.009
+anchor_right = 0.5
+anchor_bottom = 1.009
+margin_left = -155.0
+margin_top = -84.7201
+margin_right = 262.0
+margin_bottom = 0.279907
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Score: 0"
+autowrap = true
+
+[connection signal="button_down" from="Back" to="." method="_on_Back_button_down"]
+[connection signal="button_up" from="Back" to="." method="_on_Back_button_up"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

@@ -82,6 +82,8 @@ func _process(delta):
 
 func _on_Back_pressed():
 	SceneTransition.change_scene("res://scenes/Home.tscn")
+func _on_Tree_pressed():
+	SceneTransition.change_scene("res://scenes/Tree.tscn")
 func _on_level1_pressed():
 	move(1)
 	yield(self, "finished_moving")
@@ -110,5 +112,6 @@ func show_star(lvnum: int): # show a star if level is completed once
 	var star = levels[lvnum - 1]
 	star.visible = true
 	#ButtonAnimations.animate(star,ButtonAnimations.POPOUT)
+
 
 

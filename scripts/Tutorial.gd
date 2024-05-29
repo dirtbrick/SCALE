@@ -1,3 +1,4 @@
+# For teaching the rules of Logarithms
 extends Control
 
 onready var progressbar = $VBoxContainer/Panel/MarginContainer/VBoxContainer/TextureProgress
