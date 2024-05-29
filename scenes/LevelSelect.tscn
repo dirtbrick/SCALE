@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://graphics/ui_set_2.png" type="Texture" id=1]
 [ext_resource path="res://scripts/LevelSelect.gd" type="Script" id=2]
@@ -55,6 +55,16 @@ axis_stretch_vertical = 2
 texture = ExtResource( 1 )
 region_rect = Rect2( 98, 50, 618, 594 )
 
+[sub_resource type="StyleBoxTexture" id=14]
+texture = ExtResource( 1 )
+region_rect = Rect2( 251, 91, 387, 305 )
+margin_left = 46.0
+margin_right = 39.0
+margin_top = 219.0
+margin_bottom = 46.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -91,7 +101,7 @@ margin_bottom = 980.0
 columns = 3
 
 [node name="level3" type="Button" parent="Levels/AspectRatioContainer/GridContainer"]
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color( 0.258824, 0.258824, 0.258824, 1 )
 margin_right = 324.0
 margin_bottom = 324.0
 rect_pivot_offset = Vector2( 86, 561 )
@@ -201,7 +211,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="level2" type="Button" parent="Levels/AspectRatioContainer/GridContainer"]
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color( 0.258824, 0.258824, 0.258824, 1 )
 margin_left = 656.0
 margin_top = 328.0
 margin_right = 980.0
@@ -269,6 +279,7 @@ margin_left = 328.0
 margin_top = 656.0
 margin_right = 652.0
 margin_bottom = 980.0
+rect_pivot_offset = Vector2( 162, 169 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/hover = SubResource( 1 )
@@ -317,6 +328,7 @@ margin_left = -35.0
 margin_top = -232.0
 margin_right = 282.0
 margin_bottom = 60.0
+rect_pivot_offset = Vector2( 0, 146 )
 custom_colors/font_color_disabled = Color( 1, 0.952941, 0.952941, 1 )
 custom_colors/font_color = Color( 0.901961, 0.941176, 0.909804, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.952941, 0.952941, 1 )
@@ -330,6 +342,27 @@ shortcut_in_tooltip = false
 keep_pressed_outside = true
 text = "Back"
 
+[node name="Tree" type="Button" parent="Levels"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 766.0
+margin_top = -320.0
+margin_right = 1131.0
+margin_bottom = 73.0
+rect_pivot_offset = Vector2( 264, 320 )
+custom_colors/font_color_disabled = Color( 1, 0.952941, 0.952941, 1 )
+custom_colors/font_color = Color( 0.901961, 0.941176, 0.909804, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.952941, 0.952941, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 14 )
+custom_styles/normal = SubResource( 14 )
+shortcut_in_tooltip = false
+keep_pressed_outside = true
+text = "Tree"
+
 [connection signal="pressed" from="Levels/AspectRatioContainer/GridContainer/level3" to="." method="_on_level3_pressed"]
 [connection signal="pressed" from="Levels/AspectRatioContainer/GridContainer/level2" to="." method="_on_level2_pressed"]
 [connection signal="button_down" from="Levels/AspectRatioContainer/GridContainer/level1" to="." method="_on_level1_button_down"]
@@ -338,3 +371,5 @@ text = "Back"
 [connection signal="button_down" from="Levels/Back" to="." method="_on_Back_button_down"]
 [connection signal="button_up" from="Levels/Back" to="." method="_on_Back_button_up"]
 [connection signal="pressed" from="Levels/Back" to="." method="_on_Back_pressed"]
+[connection signal="button_down" from="Levels/Tree" to="." method="_on_Tree_button_down"]
+[connection signal="button_up" from="Levels/Tree" to="." method="_on_Tree_button_up"]

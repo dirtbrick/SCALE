@@ -3,6 +3,7 @@ extends Control
 
 onready var P=$Levels/AspectRatioContainer/GridContainer/Path2D/PathFollow2D
 onready var back = $Levels/Back
+onready var tree = $Levels/Tree
 onready var level1 = $Levels/AspectRatioContainer/GridContainer/level1
 onready var level2 = $Levels/AspectRatioContainer/GridContainer/level2
 onready var level3 = $Levels/AspectRatioContainer/GridContainer/level3
@@ -99,9 +100,15 @@ func _on_Back_button_up(): ButtonAnimations.animate(back,ButtonAnimations.BOUNCE
 func _on_level1_button_down(): ButtonAnimations.animate(level1,ButtonAnimations.RSQUISH)
 func _on_level1_button_up(): ButtonAnimations.animate(level1,ButtonAnimations.SQUISH)
 
+
+func _on_Tree_button_down(): ButtonAnimations.animate(tree,ButtonAnimations.RBOUNCE)
+func _on_Tree_button_up(): ButtonAnimations.animate(tree,ButtonAnimations.BOUNCE)
+
 # [Conditional]=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 func show_star(lvnum: int): # show a star if level is completed once
 	var levels = [$Levels/AspectRatioContainer/GridContainer/level1/ReferenceRect2]
 	var star = levels[lvnum - 1]
 	star.visible = true
 	#ButtonAnimations.animate(star,ButtonAnimations.POPOUT)
+
+
