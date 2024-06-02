@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://graphics/ludu.png" type="Texture" id=1]
 [ext_resource path="res://graphics/ui_set_2.png" type="Texture" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://scripts/Home.gd" type="Script" id=4]
 [ext_resource path="res://graphics/MainButtons2.png" type="Texture" id=5]
 [ext_resource path="res://graphics/BeachBackground.png" type="Texture" id=6]
+[ext_resource path="res://graphics/TutorialButtons.png" type="Texture" id=7]
 [ext_resource path="res://fonts/lazy_dog.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://ui_themes/TutorialTheme.tres" type="Theme" id=9]
 
 [sub_resource type="DynamicFont" id=23]
 size = 61
@@ -25,7 +27,9 @@ region_rect = Rect2( 20, 30, 301, 277 )
 [sub_resource type="StyleBoxEmpty" id=19]
 
 [sub_resource type="DynamicFont" id=18]
-size = 59
+size = 60
+outline_size = 9
+outline_color = Color( 1, 0.913725, 0.788235, 1 )
 font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxTexture" id=11]
@@ -38,7 +42,7 @@ margin_bottom = 30.0
 [sub_resource type="StyleBoxTexture" id=10]
 texture = ExtResource( 5 )
 region_rect = Rect2( 89, 411, 247, 299 )
-margin_top = 120.0
+margin_top = 110.0
 
 [sub_resource type="StyleBoxEmpty" id=14]
 
@@ -65,6 +69,14 @@ margin_top = 75.5977
 margin_bottom = 223.277
 
 [sub_resource type="StyleBoxEmpty" id=22]
+
+[sub_resource type="StyleBoxEmpty" id=25]
+
+[sub_resource type="StyleBoxEmpty" id=26]
+
+[sub_resource type="StyleBoxEmpty" id=27]
+
+[sub_resource type="StyleBoxEmpty" id=28]
 
 [sub_resource type="Animation" id=2]
 resource_name = "HomePanelRight"
@@ -153,16 +165,16 @@ size_flags_vertical = 3
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="Navigation/GridContainer/VBoxContainer"]
 margin_right = 493.0
-margin_bottom = 194.0
+margin_bottom = 193.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 ratio = 1.5
 stretch_mode = 1
 
 [node name="PLAY" type="Button" parent="Navigation/GridContainer/VBoxContainer/AspectRatioContainer"]
-margin_left = 101.0
-margin_right = 392.0
-margin_bottom = 194.0
+margin_left = 101.75
+margin_right = 391.25
+margin_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 0, 96 )
@@ -175,7 +187,7 @@ shortcut_in_tooltip = false
 keep_pressed_outside = true
 
 [node name="Label" type="Label" parent="Navigation/GridContainer/VBoxContainer"]
-margin_top = 198.0
+margin_top = 197.0
 margin_right = 493.0
 margin_bottom = 258.0
 custom_colors/font_color = Color( 0.643137, 0.454902, 0.454902, 1 )
@@ -205,15 +217,15 @@ size_flags_vertical = 3
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="Navigation/GridContainer/VBoxContainer2"]
 margin_right = 492.0
-margin_bottom = 194.0
+margin_bottom = 193.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 ratio = 1.5
 
 [node name="SETTINGS" type="Button" parent="Navigation/GridContainer/VBoxContainer2/AspectRatioContainer"]
-margin_left = 100.5
-margin_right = 391.5
-margin_bottom = 194.0
+margin_left = 101.25
+margin_right = 390.75
+margin_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 0, 96 )
@@ -224,16 +236,18 @@ custom_styles/pressed = SubResource( 10 )
 custom_styles/focus = SubResource( 14 )
 custom_styles/disabled = SubResource( 10 )
 custom_styles/normal = SubResource( 11 )
+shortcut_in_tooltip = false
 
 [node name="Label" type="Label" parent="Navigation/GridContainer/VBoxContainer2"]
-margin_top = 198.0
+margin_top = 197.0
 margin_right = 492.0
 margin_bottom = 258.0
 custom_colors/font_color = Color( 0.643137, 0.454902, 0.454902, 1 )
 custom_fonts/font = SubResource( 18 )
-text = "SETTINGS"
+text = "Credits"
 align = 1
 valign = 1
+uppercase = true
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Navigation/GridContainer"]
 margin_top = 524.0
@@ -244,15 +258,15 @@ size_flags_vertical = 3
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="Navigation/GridContainer/VBoxContainer3"]
 margin_right = 493.0
-margin_bottom = 193.0
+margin_bottom = 192.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 ratio = 1.5
 
 [node name="TUTORIAL" type="Button" parent="Navigation/GridContainer/VBoxContainer3/AspectRatioContainer"]
-margin_left = 101.75
-margin_right = 391.25
-margin_bottom = 193.0
+margin_left = 102.5
+margin_right = 390.5
+margin_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 0, 96 )
@@ -265,7 +279,7 @@ custom_styles/disabled = SubResource( 13 )
 custom_styles/normal = SubResource( 13 )
 
 [node name="Label" type="Label" parent="Navigation/GridContainer/VBoxContainer3"]
-margin_top = 197.0
+margin_top = 196.0
 margin_right = 493.0
 margin_bottom = 257.0
 custom_colors/font_color = Color( 0.643137, 0.454902, 0.454902, 1 )
@@ -287,7 +301,7 @@ stretch_mode = 0
 alignment_horizontal = 2
 alignment_vertical = 2
 
-[node name="THETEAM" type="Button" parent="AspectRatioContainer"]
+[node name="QUIT" type="Button" parent="AspectRatioContainer"]
 margin_top = -27.0
 margin_right = 262.0
 margin_bottom = 235.0
@@ -299,6 +313,92 @@ custom_styles/pressed = SubResource( 21 )
 custom_styles/focus = SubResource( 22 )
 custom_styles/normal = SubResource( 6 )
 text = "EXIT"
+
+[node name="Label" type="Label" parent="AspectRatioContainer/QUIT"]
+anchor_left = 0.271
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.00200653
+margin_top = -73.0
+custom_colors/font_color = Color( 0.643137, 0.454902, 0.454902, 1 )
+custom_fonts/font = SubResource( 18 )
+text = "QUIT"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+pause_mode = 2
+visible = false
+anchor_left = 0.227
+anchor_top = 0.361
+anchor_right = 0.773
+anchor_bottom = 0.639
+margin_left = -0.160019
+margin_top = 0.119965
+margin_right = 0.159912
+margin_bottom = -0.120056
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+margin_right = 590.0
+margin_bottom = 300.0
+color = Color( 0, 0, 0, 0.823529 )
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 0.244
+margin_right = 1.0
+margin_bottom = 10.8
+custom_colors/font_color = Color( 0.501961, 0.345098, 0.12549, 1 )
+custom_fonts/font = SubResource( 18 )
+text = "Quit Game?"
+align = 1
+valign = 1
+
+[node name="No" type="Button" parent="MarginContainer/ColorRect"]
+anchor_left = 0.814
+anchor_top = 0.5
+anchor_right = 0.814
+anchor_bottom = 0.5
+margin_left = -380.26
+margin_top = -150.0
+margin_right = 9.73999
+margin_bottom = 150.0
+custom_colors/font_color_disabled = Color( 0.501961, 0.345098, 0.12549, 1 )
+custom_colors/font_color_focus = Color( 0.501961, 0.345098, 0.12549, 1 )
+custom_colors/font_color = Color( 0.501961, 0.345098, 0.12549, 1 )
+custom_colors/font_color_hover = Color( 0.501961, 0.345098, 0.12549, 1 )
+custom_colors/font_color_pressed = Color( 0.501961, 0.345098, 0.12549, 1 )
+custom_fonts/font = SubResource( 18 )
+custom_styles/hover = SubResource( 25 )
+custom_styles/pressed = SubResource( 26 )
+custom_styles/focus = SubResource( 27 )
+custom_styles/normal = SubResource( 28 )
+text = "No"
+align = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+margin_right = 590.0
+margin_bottom = 300.0
+custom_constants/margin_right = 100
+custom_constants/margin_left = 100
+
+[node name="Yes" type="Button" parent="MarginContainer/MarginContainer"]
+margin_left = 100.0
+margin_right = 490.0
+margin_bottom = 300.0
+custom_colors/font_color_disabled = Color( 0.501961, 0.345098, 0.12549, 1 )
+custom_colors/font_color_focus = Color( 0.501961, 0.345098, 0.12549, 1 )
+custom_colors/font_color = Color( 0.501961, 0.345098, 0.12549, 1 )
+custom_colors/font_color_hover = Color( 0.501961, 0.345098, 0.12549, 1 )
+custom_colors/font_color_pressed = Color( 0.501961, 0.345098, 0.12549, 1 )
+custom_fonts/font = SubResource( 18 )
+custom_styles/hover = SubResource( 25 )
+custom_styles/pressed = SubResource( 26 )
+custom_styles/focus = SubResource( 27 )
+custom_styles/normal = SubResource( 28 )
+text = "Yes"
+align = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 540, 540 )
@@ -315,16 +415,115 @@ anchor_bottom = 1.0
 margin_left = 11.0
 margin_right = 0.47998
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_right = 0.5
+[node name="NinePatchRect3" type="NinePatchRect" parent="."]
+anchor_left = 0.804
+anchor_top = -1.0
+anchor_right = 0.828
+margin_left = -0.320007
+margin_right = -0.240051
+texture = ExtResource( 7 )
+region_rect = Rect2( 47, 171, 31, 507 )
+axis_stretch_vertical = 1
+
+[node name="MarginContainer2" type="Control" parent="."]
+anchor_top = -1.0
+anchor_right = 1.0
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="MarginContainer2"]
+anchor_left = 0.224
+anchor_right = 0.264
 anchor_bottom = 1.0
-margin_left = 1091.0
-margin_right = 2311.0
+margin_left = 0.0799866
+margin_right = -0.119995
+texture = ExtResource( 7 )
+region_rect = Rect2( 47, 171, 31, 507 )
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="MarginContainer2"]
+anchor_left = 0.05
+anchor_top = 0.429
+anchor_right = 0.95
+anchor_bottom = 0.996
+margin_top = -0.320007
+margin_bottom = 0.319946
+texture = ExtResource( 7 )
+region_rect = Rect2( 104, 84, 776, 219 )
+patch_margin_left = 232
+patch_margin_top = 35
+patch_margin_right = 249
+patch_margin_bottom = 36
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer2/NinePatchRect4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 4.0
+margin_right = -13.0
+margin_bottom = -1.0
+size_flags_horizontal = 3
+theme = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[color=#fff0]LEADER / MANAGER: [/color] John Lukes Cawaling
+[color=#00eeff]LEAD GAME DESIGNER: [/color] Julez Deyn Romero
+[color=#ff0077]LEAD ART Maker: [/color] Shekinah Denise Rufon
+[color=#00ff00]LEAD PROGRAMMER:[/color] Loel Joseph Hofileña
+
+[wave]Special Thanks[/wave]
+
+[color=yellow]Losef Giorel Llamar[/color] for the Background Music
+[color=#00ff00]PSHS-MRC Math Teachers[/color] for their time for interview
+"
+text = "LEADER / MANAGER:  John Lukes Cawaling
+LEAD GAME DESIGNER:  Julez Deyn Romero
+LEAD ART Maker:  Shekinah Denise Rufon
+LEAD PROGRAMMER: Loel Joseph Hofileña
+
+Special Thanks
+
+Losef Giorel Llamar for the Background Music
+PSHS-MRC Math Teachers for their time for interview
+"
+scroll_active = false
+
+[node name="NinePatchRect5" type="NinePatchRect" parent="MarginContainer2"]
+anchor_left = 0.05
+anchor_top = 0.169
+anchor_right = 0.95
+anchor_bottom = 0.344
+margin_top = -0.520081
+margin_bottom = 0.479919
+texture = ExtResource( 7 )
+region_rect = Rect2( 104, 84, 776, 219 )
+patch_margin_left = 232
+patch_margin_top = 35
+patch_margin_right = 249
+patch_margin_bottom = 36
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer2/NinePatchRect5"]
+anchor_top = 0.259
+anchor_right = 1.005
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 6.78998
+margin_right = 0.140015
+margin_bottom = -12.0001
+rect_min_size = Vector2( 100, 0 )
+rect_clip_content = false
+size_flags_horizontal = 3
+theme = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center][wave]Credits"
+text = "Credits"
+scroll_active = false
+deselect_on_focus_loss_enabled = false
 
 [connection signal="resized" from="." to="." method="_on_Home_resized"]
 [connection signal="pressed" from="Navigation/GridContainer/VBoxContainer/AspectRatioContainer/PLAY" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Navigation/GridContainer/VBoxContainer2/AspectRatioContainer/SETTINGS" to="." method="_on_SETTINGS_pressed"]
 [connection signal="pressed" from="Navigation/GridContainer/VBoxContainer3/AspectRatioContainer/TUTORIAL" to="." method="_on_TUTORIAL_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/QUIT" to="." method="_on_QUIT_pressed"]
+[connection signal="pressed" from="MarginContainer/ColorRect/No" to="." method="_on_No_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/Yes" to="." method="_on_Yes_pressed"]
 [connection signal="swipe_down" from="Camera2D" to="." method="_on_Camera2D_swipe_down"]
 [connection signal="swipe_left" from="Camera2D" to="." method="_on_Camera2D_swipe_left"]
 [connection signal="swipe_right" from="Camera2D" to="." method="_on_Camera2D_swipe_right"]

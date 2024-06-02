@@ -49,5 +49,24 @@ func _on_TUTORIAL_pressed():
 	SceneTransition.change(),
 	yield(SceneTransition.play("ScopeIN2"),"completed"),
 	SceneTransition.remove()])"""
-func _on_SETTINGS_pressed():
-	pass # Replace with function body.
+func _on_SETTINGS_pressed(): 
+	print("fgdsfsd")
+	var tween = create_tween()
+	var node = $MarginContainer
+	tween.set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	node.anchor_top = -1
+	tween.tween_property(node, "anchor_top", 0, 0.7)
+func _on_QUIT_pressed():
+	$MarginContainer.visible = true
+	get_tree().paused = true
+
+#IDK WHY THIS DOESN'T WORK BROOO 
+# tried:
+# 1.  yes and no button on the same margincontainer it only turns the whole poppup invisible
+# 2. yes in another margin container, no in the upper margin conatiner, it only quits whether you press yes or no
+# 3. 
+func _on_Yes_pressed():
+	get_tree().quit()
+func _on_No_pressed():
+	get_tree().paused = false
+	$MarginContainer.visible = false
