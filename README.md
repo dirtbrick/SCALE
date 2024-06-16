@@ -16,8 +16,7 @@ Latest development builds
 Reporting bugs
 --------------
 
-This game still has bugs and if you run into one, please use the GitHub discussions
-(https://github.com/ljzh04/Ludumathica/discussions/categories/bug-reports) to report the bug. In order to fix
+This game still has bugs and if you run into one, please use the [GitHub discussions](https://github.com/ljzh04/Ludumathica/discussions/categories/bug-reports) to report the bug. In order to fix
 those bugs more quickly:
 
    1. Give as much information about what you were doing before the crash/bug
