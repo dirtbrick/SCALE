@@ -3,7 +3,7 @@ Ludumathica
 
 Installation
 ------------
-
+To install, click the premade packages from the latest builds below or select older versions for your platform in the [releases](https://github.com/ljzh04/Ludumathica/tags) section.
 
 Latest development builds
 -------------------------
