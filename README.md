@@ -9,13 +9,9 @@ Latest development builds
 -------------------------
 
 
-[![Windows Build Status](https://img.shields.io/Windows-Unavailable?logo=windows)](https://github.com/ljzh04/Ludumathica/releases/download/v.0.1.0-alpha/Ludumathica.apk)
-[![Android Build Status](https://img.shields.io/badge/Android-v0.1_alpha-brightgreen?logo=android)](https://github.com/ljzh04/Ludumathica/releases/download/v.0.1.0-alpha/Ludumathica.apk)
-#[![Ubuntu Build Status](https://img.shields.io/github/actions/workflow/status/Warzone2100/warzone2100/CI_ubuntu.yml?branch=master&label=Ubuntu&logo=ubuntu&logoColor=FFFFFF)](https://github.com/Warzone2100/warzone2100/actions?query=workflow%3AUbuntu+branch%3Amaster+event%3Apush)
-#[![Fedora Build Status](https://img.shields.io/github/actions/workflow/status/Warzone2100/warzone2100/CI_fedora.yml?branch=master&label=Fedora&logo=fedora&logoColor=FFFFFF)](https://github.com/Warzone2100/warzone2100/actions?query=workflow%3AFedora+branch%3Amaster+event%3Apush)
-#[![FreeBSD Build Status](https://img.shields.io/cirrus/github/Warzone2100/warzone2100/master?label=FreeBSD&logo=FreeBSD)](https://cirrus-ci.com/github/Warzone2100/warzone2100/master)
-#[![Drone Cloud CI ARM64 Build Status](https://img.shields.io/drone/build/Warzone2100/warzone2100/master?label=ARM64%20Linux)](https://cloud.drone.io/Warzone2100/warzone2100)
-#[![Packaging status](https://repology.org/badge/tiny-repos/warzone2100.svg)](https://repology.org/project/warzone2100/versions)
+[![Windows Build Status](https://img.shields.io/badge/Windows-Unavailable?logo=windows&logoColor=FFFFFF)](https://github.com/ljzh04/Ludumathica#)
+[![Android Build Status](https://img.shields.io/badge/Android-v0.1_alpha-brightgreen?logo=android&logoColor=FFFFFF)](https://github.com/ljzh04/Ludumathica/releases/download/v.0.1.0-alpha/Ludumathica.apk)
+[![Ubuntu Build Status](https://img.shields.io/badge/Ubuntu-Unavailable?logo=ubuntu&logoColor=FFFFFF)](https://github.com/ljzh04/Ludumathica#)
 
 Reporting bugs
 --------------
