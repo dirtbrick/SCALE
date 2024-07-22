@@ -2,6 +2,7 @@ Ludumathica
 ============
 ![GitHub repo size](https://img.shields.io/github/repo-size/ljzh04/Ludumathica?style=flat-square&logo=github)
 ![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/ljzh04/Ludumathica?style=flat-square&logo=github)
+
 A fun and approachable application for introducing highschool level mathematical concepts such as polynomials, trigonometry and calculus. It (will) contain quizzes, tutorials, and learning paths as the main mode of engagement.
 
 
