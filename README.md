@@ -1,5 +1,9 @@
 Ludumathica
 ============
+![GitHub repo size](https://img.shields.io/github/repo-size/ljzh04/Ludumathica?style=flat-square&logo=github)
+![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/ljzh04/Ludumathica?style=flat-square&logo=github)
+A fun and approachable application for introducing highschool level mathematical concepts such as polynomials, trigonometry and calculus. It (will) contain quizzes, tutorials, and learning paths as the main mode of engagement.
+
 
 Installation
 ------------
@@ -12,7 +16,7 @@ Latest development builds
 ![Windows Build Status](https://img.shields.io/badge/Windows-Unavailable-red?logo=windows&logoColor=FFFFFF)
 [![Android Build Status](https://img.shields.io/badge/Android-v0.1--alpha-brightgreen?logo=android&logoColor=FFFFFF)](https://github.com/ljzh04/Ludumathica/releases/download/v.0.1.0-alpha/Ludumathica.apk)
 ![Ubuntu Build Status](https://img.shields.io/badge/Ubuntu-Unavailable-red?logo=ubuntu&logoColor=FFFFFF)
-![Repo Size](https://img.shields.io/github/repo-size/ljzh04/Ludumathica?label=Repo%20Size&style=for-the-badge)
+
 
 Reporting bugs
 --------------
