@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MainButtons2.png-90e72570b4479ae6feec40451c0fc140.stex"
+path="res://.import/ludumathica.png-d521b555722fd0f81afb2ecf48d321c4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/MainButtons2.png"
-dest_files=[ "res://.import/MainButtons2.png-90e72570b4479ae6feec40451c0fc140.stex" ]
+source_file="res://graphics/ludumathica.png"
+dest_files=[ "res://.import/ludumathica.png-d521b555722fd0f81afb2ecf48d321c4.stex" ]
 
 [params]
 

@@ -1,6 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://graphics/MainButtons2.png" type="Texture" id=1]
+[ext_resource path="res://graphics/buttons_shells.png" type="Texture" id=1]
+
 
 [sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 1 )

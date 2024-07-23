@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Tutorial.gd" type="Script" id=1]
-[ext_resource path="res://graphics/WaterBackground.png" type="Texture" id=2]
-[ext_resource path="res://graphics/Frame 6.png" type="Texture" id=3]
-[ext_resource path="res://graphics/TutorialButtons.png" type="Texture" id=4]
+[ext_resource path="res://graphics/bg_underwater.png" type="Texture" id=2]
+[ext_resource path="res://graphics/progress_bars/under2.png" type="Texture" id=3]
+[ext_resource path="res://graphics/ui_planks_n_chains.png" type="Texture" id=4]
 [ext_resource path="res://ui_themes/TutorialTheme.tres" type="Theme" id=5]
-[ext_resource path="res://graphics/Frame 7.png" type="Texture" id=6]
+[ext_resource path="res://graphics/progress_bars/progress2.png" type="Texture" id=6]
 [ext_resource path="res://addons/animated_text/examples/LuckiestGuy-Regular.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="DynamicFont" id=7]
@@ -135,21 +135,27 @@ custom_constants/margin_bottom = 20
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel/MarginContainer"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 986.0
+margin_right = 969.0
 margin_bottom = 651.0
 
 [node name="TextureProgress" type="TextureProgress" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer"]
-margin_right = 966.0
-margin_bottom = 100.0
+margin_right = 949.0
+margin_bottom = 39.0
 size_flags_horizontal = 4
 value = 20.0
 rounded = true
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 6 )
+tint_under = Color( 0.329412, 0.227451, 0.141176, 1 )
+tint_progress = Color( 0.298039, 0.74902, 0.513726, 1 )
+nine_patch_stretch = true
+stretch_margin_left = 833
+stretch_margin_right = 116
+stretch_margin_bottom = 39
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer"]
-margin_top = 104.0
-margin_right = 966.0
+margin_top = 43.0
+margin_right = 949.0
 margin_bottom = 631.0
 size_flags_vertical = 3
 custom_constants/margin_right = 20
@@ -160,17 +166,17 @@ custom_constants/margin_bottom = 20
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 946.0
-margin_bottom = 507.0
+margin_right = 929.0
+margin_bottom = 568.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-margin_right = 461.0
-margin_bottom = 487.0
+margin_right = 452.0
+margin_bottom = 548.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_right = 461.0
-margin_bottom = 487.0
+margin_right = 452.0
+margin_bottom = 548.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 5 )
@@ -182,9 +188,9 @@ Exponent (C)"
 autowrap = true
 
 [node name="Panel" type="Panel" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 465.0
-margin_right = 926.0
-margin_bottom = 487.0
+margin_left = 456.0
+margin_right = 909.0
+margin_bottom = 548.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Panel"]
@@ -198,8 +204,8 @@ custom_constants/margin_bottom = 10
 [node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Panel/MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 451.0
-margin_bottom = 477.0
+margin_right = 443.0
+margin_bottom = 538.0
 size_flags_horizontal = 11
 size_flags_vertical = 1
 theme = ExtResource( 5 )

@@ -1,13 +1,13 @@
 [gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://graphics/ludu.png" type="Texture" id=1]
-[ext_resource path="res://graphics/ui_set_2.png" type="Texture" id=2]
+[ext_resource path="res://graphics/ludumathica.png" type="Texture" id=1]
+[ext_resource path="res://graphics/ui_levels_1.png" type="Texture" id=2]
 [ext_resource path="res://scripts/singleton/swipedetector.gd" type="Script" id=3]
 [ext_resource path="res://scripts/Home.gd" type="Script" id=4]
-[ext_resource path="res://graphics/MainButtons2.png" type="Texture" id=5]
-[ext_resource path="res://graphics/BeachBackground.png" type="Texture" id=6]
-[ext_resource path="res://graphics/TutorialButtons.png" type="Texture" id=7]
-[ext_resource path="res://fonts/lazy_dog.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://graphics/buttons_shells.png" type="Texture" id=5]
+[ext_resource path="res://graphics/bg_beach.png" type="Texture" id=6]
+[ext_resource path="res://graphics/ui_planks_n_chains.png" type="Texture" id=7]
+[ext_resource path="res://fonts/LazyDog.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://ui_themes/TutorialTheme.tres" type="Theme" id=9]
 
 [sub_resource type="DynamicFont" id=23]
@@ -340,8 +340,8 @@ margin_right = 0.159912
 margin_bottom = -0.120056
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]
-margin_right = 590.0
-margin_bottom = 300.0
+margin_right = 589.0
+margin_bottom = 299.0
 color = Color( 0, 0, 0, 0.823529 )
 
 [node name="Label" type="Label" parent="MarginContainer/ColorRect"]
@@ -378,15 +378,15 @@ text = "No"
 align = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
-margin_right = 590.0
-margin_bottom = 300.0
+margin_right = 589.0
+margin_bottom = 299.0
 custom_constants/margin_right = 100
 custom_constants/margin_left = 100
 
 [node name="Yes" type="Button" parent="MarginContainer/MarginContainer"]
 margin_left = 100.0
-margin_right = 490.0
-margin_bottom = 300.0
+margin_right = 489.0
+margin_bottom = 299.0
 custom_colors/font_color_disabled = Color( 0.501961, 0.345098, 0.12549, 1 )
 custom_colors/font_color_focus = Color( 0.501961, 0.345098, 0.12549, 1 )
 custom_colors/font_color = Color( 0.501961, 0.345098, 0.12549, 1 )

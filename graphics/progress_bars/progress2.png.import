@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WaterBackground.png-4bdd9466e53d36c9351e6e66fb10f59a.stex"
+path="res://.import/progress2.png-eb291575bb9e0167e1a584af78b72609.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/WaterBackground.png"
-dest_files=[ "res://.import/WaterBackground.png-4bdd9466e53d36c9351e6e66fb10f59a.stex" ]
+source_file="res://graphics/progress_bars/progress2.png"
+dest_files=[ "res://.import/progress2.png-eb291575bb9e0167e1a584af78b72609.stex" ]
 
 [params]
 

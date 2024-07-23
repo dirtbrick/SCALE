@@ -1,10 +1,11 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://graphics/WaterBackground.png" type="Texture" id=1]
+[ext_resource path="res://graphics/bg_underwater.png" type="Texture" id=1]
 [ext_resource path="res://ui_themes/LevelTheme.tres" type="Theme" id=2]
 [ext_resource path="res://addons/dialogic/Documentation/Theme/Font/NotoSans-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://scripts/levels/Level1(REAL).gd" type="Script" id=4]
 [ext_resource path="res://addons/animated_text/examples/LuckiestGuy-Regular.ttf" type="DynamicFontData" id=5]
+
 
 [sub_resource type="DynamicFont" id=2]
 size = 51

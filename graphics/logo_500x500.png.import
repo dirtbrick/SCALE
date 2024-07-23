@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LevelBackground.png-e2464a616e25b37acdb3c96ada561084.stex"
+path="res://.import/logo_500x500.png-2dde38c04765400f7ccc26cacfb05241.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/LevelBackground.png"
-dest_files=[ "res://.import/LevelBackground.png-e2464a616e25b37acdb3c96ada561084.stex" ]
+source_file="res://graphics/logo_500x500.png"
+dest_files=[ "res://.import/logo_500x500.png-2dde38c04765400f7ccc26cacfb05241.stex" ]
 
 [params]
 

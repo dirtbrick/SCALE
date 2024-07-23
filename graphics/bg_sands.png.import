@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WaterSmoke.png-5d3cbcd56cd9ee2b95bd37947c4bdef7.stex"
+path="res://.import/bg_sands.png-4821f760923345e91f7bb222b92b244e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/WaterSmoke.png"
-dest_files=[ "res://.import/WaterSmoke.png-5d3cbcd56cd9ee2b95bd37947c4bdef7.stex" ]
+source_file="res://graphics/bg_sands.png"
+dest_files=[ "res://.import/bg_sands.png-4821f760923345e91f7bb222b92b244e.stex" ]
 
 [params]
 

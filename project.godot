@@ -121,7 +121,7 @@ run/main_scene="res://scenes/Home.tscn"
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-config/icon="res://graphics/logo500x500.png"
+config/icon="res://graphics/logo_500x500.png"
 
 [autoload]
 

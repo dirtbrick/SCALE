@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BeachBackground.png-af1b0c0bf34aba2aa0d52e65decbd8e7.stex"
+path="res://.import/buttons_shells.png-84c02560f05a7f4889136b151ee9f947.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/BeachBackground.png"
-dest_files=[ "res://.import/BeachBackground.png-af1b0c0bf34aba2aa0d52e65decbd8e7.stex" ]
+source_file="res://graphics/buttons_shells.png"
+dest_files=[ "res://.import/buttons_shells.png-84c02560f05a7f4889136b151ee9f947.stex" ]
 
 [params]
 

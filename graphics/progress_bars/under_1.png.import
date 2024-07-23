@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ludu.png-bcba2c45b6c6b0143cf370970aac8784.stex"
+path="res://.import/under_1.png-10c7f724825a8dc6c333278e76c16094.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/ludu.png"
-dest_files=[ "res://.import/ludu.png-bcba2c45b6c6b0143cf370970aac8784.stex" ]
+source_file="res://graphics/progress_bars/under_1.png"
+dest_files=[ "res://.import/under_1.png-10c7f724825a8dc6c333278e76c16094.stex" ]
 
 [params]
 
