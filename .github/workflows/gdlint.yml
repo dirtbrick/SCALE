@@ -1,16 +1,32 @@
 name: gdlint
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
-
 jobs:
-  static-checks:
-    name: 'Static checks'
+  lint:
     runs-on: ubuntu-latest
+    name: "Lint"
     steps:
-    - uses: actions/checkout@v4
-    - uses: Scony/godot-gdscript-toolkit@master
-    - run: ls -la
-    - run: gdlint scripts/
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+        with:
+          fetch-depth: 0
+
+      - name: Setup python
+        uses: actions/setup-python@v4.7.1
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Upgrade setuptools
+        run: pip install --upgrade setuptools
+
+      - name: Install gdtoolkit
+        run: pip install gdtoolkit==3.*
+      - name: Setup gdtoolkit
+        uses: Scony/godot-gdscript-toolkit@master
+
+      - name: Lint
+        run: gdlint scripts/
