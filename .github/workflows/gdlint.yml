@@ -9,17 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     name: "Lint"
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+        with:
+          fetch-depth: 0
+          
       - name: create-requirements-if-not-exists
         run: |
           if [ ! -f requirements.txt ]; then
             echo "gdtoolkit==3.*" > requirements.txt
           fi
         shell: bash
-      - name: Checkout
-        uses: actions/checkout@v4.1.1
-        with:
-          fetch-depth: 0
-
+        
       - name: Setup python
         uses: actions/setup-python@v4.7.1
         with:
