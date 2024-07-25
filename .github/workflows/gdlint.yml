@@ -12,7 +12,7 @@ jobs:
       - id: create-requirements-if-not-exists
         run: |
           if [ ! -f requirements.txt ]; then
-            echo "gdtoolkit==${{inputs.version}}" > requirements.txt
+            echo "gdtoolkit==3.*" > requirements.txt
           fi
       - name: Checkout
         uses: actions/checkout@v4.1.1
